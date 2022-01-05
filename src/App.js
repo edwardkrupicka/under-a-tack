@@ -1,13 +1,26 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import React, { useState, useEffect } from 'react';
 
-function App() {
+const App = () => {
+
+  const[data, setData] = useState('')
+
+  useEffect( () => {
+    const fetchData = async (api) => {
+      const response = await fetch(api)
+      const responseJson = await response.json()
+      setData(responseJson)
+    }
+    fetchData('http://localhost:3001/api/v1/images')
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          under a tack
         </p>
         <a
           className="App-link"
