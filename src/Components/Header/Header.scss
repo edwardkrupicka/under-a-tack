@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+  height: 200px;
+  border: 2px solid red;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.button-container {
+  border: 2px solid magenta;
+  height: 75px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
