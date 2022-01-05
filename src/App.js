@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.scss';
+import Grid from './Components/Grid/Grid';
+import ImagePage from './Components/ImagePage/ImagePage';
+import Cart from './Components/Cart/Cart';
 
 const App = () => {
 
@@ -18,8 +21,11 @@ const App = () => {
   return (
     <div className="App">
       <h1>Under A Tack</h1>
-      
-
+        <Routes>
+          <Route path='/' element={ <Grid /> } />
+          <Route path='/images/:id' element={ <ImagePage /> } />
+          <Route path='/cart' element={ <Cart /> } />
+        </Routes>
     </div>
   );
 }
