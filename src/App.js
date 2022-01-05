@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.scss';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './App.scss';
 
 const App = () => {
 
@@ -17,20 +17,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          under a tack
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Under A Tack</h1>
+      
+
     </div>
   );
 }
