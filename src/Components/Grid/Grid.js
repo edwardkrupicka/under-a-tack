@@ -1,10 +1,25 @@
 import './Grid.scss';
+import Card from '../Card/Card'
 
-const Grid = () => {
-	
-	return (
-		<h1>Grid</h1>
-	)
+
+const Grid = ({ data }) => {
+  const cards = data.map((element) => {
+    return <Card
+      id={element.id}
+      key={element.id}
+      url={element.url}
+      title={element.title}
+      color={element.color}
+      artist={element.artist}
+      type={element.type}
+    />
+  })
+
+  return (
+    <section className="grid-container">
+      {cards}
+    </section>
+  )
 }
 
 export default Grid;

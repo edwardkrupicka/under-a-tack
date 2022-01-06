@@ -1,0 +1,12 @@
+.grid-container {
+  border: 2px solid springgreen;
+  display: grid;
+  // height: 500px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-gap: 10px;
+  justify-content:center;
+  align-items:start;
+  width: 100%;
+  box-sizing: border-box;
+
+}
