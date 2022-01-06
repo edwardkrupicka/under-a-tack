@@ -1,9 +1,34 @@
 import './ImagePage.scss';
+import '../Card/Card'
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const ImagePage = () => {
+	const [newData, setNewData] = useState([]);
+
+	const locationId = useLocation().pathname.split(':')[1]
+
+	useEffect(() => {
+		const fetchData = async (api) => {
+		  const response = await fetch(api)
+		  const responseJson = await response.json()
+		  setNewData(responseJson)
+		}
+		fetchData(`http://localhost:3001/api/v1/images/${locationId}`)
+	  }, [])
+
 	
 	return (
-		<h1>IMAGEPAGE</h1>
+		<div className='image-page'>
+			<img src={newData.url}/>
+			<h2>Title: {newData.title}</h2>
+			<p>Artist: {newData.artist}</p>
+			<p>Color: {newData.color}</p>
+			<p>Type: {newData.type}</p> 
+			<button> add to cart</button>
+		</div>
+
+
 	)
 }
 
