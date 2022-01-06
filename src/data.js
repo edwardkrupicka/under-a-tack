@@ -1,4 +1,44 @@
 export const images = [
+
+  { id: 11,
+    url: 'https://unsplash.com/photos/KRztl5I6xac', 
+    title: 'fire fox' ,
+    color: 'red' ,
+    artist: 'Fuu J' ,
+    type: 'watercolor'
+    }
+    ,
+    { id: 12,
+    url: 'https://unsplash.com/photos/CLoSgOrJU6s',
+    title: 'untitled' ,
+    color: 'yellow' ,
+    artist: 'Fuu J' ,
+    type: 'watercolor'
+    }
+    ,
+    { id: 13,
+    url: 'https://unsplash.com/photos/pWsriea-RPY', 
+    title: 'untitled' ,
+    color: 'blue' ,
+    artist: 'Kseniya Lapteva' ,
+    type: 'watercolor'
+    },
+    
+    { id: 14,
+    url: 'https://unsplash.com/photos/5syls8GxO1Q' ,
+    title: 'untitled' ,
+    color: 'pink' ,
+    artist: 'Kseniya Lapteva' ,
+    type: 'watercolor'
+    },
+    
+    { id: 15,
+    url: 'https://unsplash.com/photos/MczRMzUwwPs' ,
+    title: 'An Artist\'s Touch' ,
+    color: 'green' ,
+    artist: 'Joanna Kosinska' ,
+    type: 'watercolor'
+    },
   {
     id: 16,
     url: 'https://images.unsplash.com/photo-1577081320692-6eff449819c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=896&q=80',
@@ -40,3 +80,5 @@ export const images = [
     type: 'painting'
   }
 ]
+
+//TODO single colors should be in array also to allow us to use iterator methods if need be

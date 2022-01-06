@@ -8,7 +8,7 @@ import Cart from './Components/Cart/Cart';
 
 const App = () => {
 
-  const [data, setData] = useState('')
+  const [data, setData] = useState([])
 
   useEffect(() => {
     const fetchData = async (api) => {
@@ -23,7 +23,7 @@ const App = () => {
     <div className="App">
       <Header />
       <Routes>
-        <Route path='/' element={<Grid />} />
+        <Route path='/' element={<Grid data={data}/>} />
         <Route path='/images/:id' element={<ImagePage />} />
         <Route path='/cart' element={<Cart />} />
       </Routes>

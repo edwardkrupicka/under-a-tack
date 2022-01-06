@@ -1,0 +1,11 @@
+.grid-container {
+  border: 2px solid springgreen;
+  display: grid;
+  height: 500px;
+  grid-template-columns: repeat(3, 200px);
+  grid-gap: 10px;
+  justify-content:center;
+  width: 100%;
+  box-sizing: border-box;
+
+}
