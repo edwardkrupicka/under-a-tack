@@ -1,23 +1,23 @@
 import './Grid.scss';
-import Image from '../Image/Image'
+import Card from '../Card/Card'
 
 
 const Grid = ({ data }) => {
-  const images = data.map((image) => {
-    return <Image
-      id={image.id}
-      key={image.id}
-      url={image.url}
-      title={image.title}
-      color={image.color}
-      artist={image.artist}
-      type={image.type}
+  const cards = data.map((element) => {
+    return <Card
+      id={element.id}
+      key={element.id}
+      url={element.url}
+      title={element.title}
+      color={element.color}
+      artist={element.artist}
+      type={element.type}
     />
   })
 
   return (
     <section className="grid-container">
-      {images}
+      {cards}
     </section>
   )
 }
