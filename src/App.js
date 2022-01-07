@@ -5,6 +5,7 @@ import Header from './Components/Header/Header'
 import Grid from './Components/Grid/Grid';
 import ImagePage from './Components/ImagePage/ImagePage';
 import Cart from './Components/Cart/Cart';
+import Favorites from './Components/Favorites/Favorites';
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Grid data={data}/>} />
         <Route path='/images/:id' element={<ImagePage />} />
+        <Route path='/favorites' element={<Favorites />} />
         <Route path='/cart' element={<Cart />} />
       </Routes>
     </div>
