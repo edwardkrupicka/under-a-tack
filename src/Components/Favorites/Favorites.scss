@@ -1,0 +1,11 @@
+.favorites-grid {
+	border: 2px solid springgreen;
+  display: grid;
+  height: 500px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 10px;
+  justify-content:center;
+  align-items:start;
+  width: 100%;
+  box-sizing: border-box;
+}
