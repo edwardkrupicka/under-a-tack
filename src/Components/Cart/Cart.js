@@ -1,11 +1,10 @@
 import React from 'react';
 import './Cart.scss';
 
-const Cart = ({ items }) => {
-  console.log(items)
+const Cart = ({ cartItems }) => {
+  console.log(cartItems)
 
-
-  const cartItems = items.map((product) => {
+  const itemsInCart = cartItems.map((product) => {
     return (
       <div className="single-item"
         key={product.id}>
@@ -26,7 +25,7 @@ const Cart = ({ items }) => {
         <p className="cart-text">Price</p>
       </div>
       <section className="cart-items">
-        {cartItems}
+        {itemsInCart}
       </section>
       <section className="cart-finances">
         <p className="cart-text">Subtotal</p>

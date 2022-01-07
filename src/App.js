@@ -20,10 +20,11 @@ const App = () => {
     fetchData('http://localhost:3001/api/v1/images')
   }, [])
 
-  const addToCart = (itemId) => {
+  const addToCart = async (itemId) => {
     const newItem = data.find((item) => item.id === itemId)
     console.log('newItem<><><>', newItem)
-    setCartItems([...cartItems, newItem])
+    await setCartItems([...cartItems, newItem])
+    console.log("cartItems", cartItems)
   }
 
   return (
@@ -32,7 +33,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Grid data={data} />} />
         <Route path='/images/:id' element={<ImagePage addToCart={addToCart}/>} />
-        <Route path='/cart' element={<Cart items={data} />} />
+        <Route path='/cart' element={<Cart items={cartItems} />} />
       </Routes>
     </div>
   );

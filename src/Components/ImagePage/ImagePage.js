@@ -18,6 +18,7 @@ const ImagePage = ({ addToCart }) => {
     fetchData(`http://localhost:3001/api/v1/images/${locationId}`)
   }, [])
 
+  
 
   return (
     <div className='image-page'>
