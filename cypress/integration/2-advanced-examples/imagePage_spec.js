@@ -21,10 +21,15 @@ describe('Under-a-Tack ImagePage', () => {
         .contains("Under-A-Tack")
       });
 
-      it("should show display title of a specific image", () => {
+      it("Should show display title of a specific image", () => {
         cy.get("h2")
         .contains("Last Summer Things Were Greener")
-    })
+       })
+
+      it("Should show display artist of a specific image", () => {
+            cy.get("p")
+            .contains("John Byam Liston Shaw")
+        })
 
 
 
