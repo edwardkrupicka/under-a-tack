@@ -31,6 +31,9 @@ describe('Under-a-Tack ImagePage', () => {
             .contains("John Byam Liston Shaw")
         })
 
-
+      it("should show a button for add to cart", () => {
+            cy.get("button")
+            .contains("add to cart")
+        })
 
   });
