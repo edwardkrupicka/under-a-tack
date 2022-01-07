@@ -1,6 +1,7 @@
 import './Favorites.scss';
 import React, { useState, useEffect } from 'react';
 import Card from '../Card/Card'
+import Grid from '../Grid/Grid';
 
 const Favorites = () => {
   const [favData, setFavData] = useState([])
@@ -14,21 +15,10 @@ const Favorites = () => {
     fetchData(`http://localhost:3001/api/v1/favorites`)
   }, [])
 
-  const cards = favData.map((element) => {
-    return <Card
-      id={element.id}
-      key={element.id}
-      url={element.url}
-      title={element.title}
-      color={element.color}
-      artist={element.artist}
-      type={element.type}
-    />
-  })
-
   return (
-    <section className='favorites-grid'>
-      {cards}
+    <section className='favorites'>
+      <h1>favorites</h1>
+      <Grid data={favData}/>
     </section>
   )
 }
