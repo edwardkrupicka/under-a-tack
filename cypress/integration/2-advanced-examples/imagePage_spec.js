@@ -21,6 +21,11 @@ describe('Under-a-Tack ImagePage', () => {
         .contains("Under-A-Tack")
       });
 
+      it("should show display title of a specific image", () => {
+        cy.get("h2")
+        .contains("Last Summer Things Were Greener")
+    })
+
 
 
   });
