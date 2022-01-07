@@ -15,4 +15,12 @@ describe('Under-a-Tack ImagePage', () => {
               }) 
         cy.visit('http://localhost:3000/images/:16');
       });
+
+      it('Should be able to visit the page and show the website title"', () => {
+        cy.get("div.App")
+        .contains("Under-A-Tack")
+      });
+
+
+
   });
