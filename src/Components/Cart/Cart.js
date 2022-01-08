@@ -16,11 +16,12 @@ const Cart = () => {
 
 
   const itemsInCart = data.map((product) => {
+    console.log(product.quantity)
     return (
       <div className="single-item"
         key={product.id}>
         <img src={product.url} alt={`${product.title} by ${product.artist}`}></img>
-        <p></p>
+        <p>{product.quantity}</p>
         <p>{product.price}</p>
       </div>
     )
