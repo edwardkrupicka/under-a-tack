@@ -1,7 +1,7 @@
 import './Card.scss';
 import { Link } from 'react-router-dom';
 
-const Card = ({ id, url, title, color, artist, type }) => {
+const Card = ({ id, url, title, color, artist, type, quantity, price }) => {
 
   return (
     <Link to={`images/:${id}`}>

@@ -1,15 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Cart.scss';
 
-const Cart = ({ cartItems }) => {
-  console.log(cartItems)
+const Cart = () => {
+  
+  const [data, setData] = useState([]);
 
-  const itemsInCart = cartItems.map((product) => {
+  useEffect(() => {
+    const fetchData = async (api) => {
+      const response = await fetch(api)
+      const responseJson = await response.json()
+      setData(responseJson)
+    }
+    fetchData('http://localhost:3001/api/v1/cart')
+  }, [])
+
+
+  const [cartTotal, setCartTotal] = useState('');
+
+  useEffect(() => {
+    const calculateSubTotal = () => {
+      const subTotal = data.reduce((sum, item) => {
+        sum += (item.quantity * parseInt(item.price));
+        return sum;
+      }, 0)
+      setCartTotal(subTotal)
+    }
+    calculateSubTotal()
+  }, [data])
+
+
+  const itemsInCart = data.map((product) => {
+    console.log(product.quantity)
     return (
       <div className="single-item"
         key={product.id}>
         <img src={product.url} alt={`${product.title} by ${product.artist}`}></img>
-        <p></p>
+        <p>{product.quantity}</p>
         <p>{product.price}</p>
       </div>
     )
@@ -28,10 +54,10 @@ const Cart = ({ cartItems }) => {
         {itemsInCart}
       </section>
       <section className="cart-finances">
-        <p className="cart-text">Subtotal</p>
+        <p className="cart-text">Subtotal ${cartTotal}</p>
         <p className="cart-text">Tax </p>
         <p className="cart-text">Shipping Estimate</p>
-        <h3 className="cart-total">Total</h3>
+        <h3 className="cart-total">Total </h3>
       </section>
     </div>
   )
