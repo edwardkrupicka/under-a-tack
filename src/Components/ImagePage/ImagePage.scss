@@ -1,0 +1,36 @@
+.image-page {
+    height: 100vh;
+    display: flex;
+
+}
+
+img {
+    border: 3px green solid;
+    padding: 10vh 5vh 10vh 5vh;
+}
+
+article {
+    margin-top: 10vh;
+    flex-direction: column;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 4vh;
+}
+
+p {
+    font-size: 3vh;
+    margin-top: 2vh;
+}
+
+button {
+    margin-top: 2vh;
+    width: 15vh;
+    height: 3vh;
+    font-size: 2vh;
+    margin-right: 40vh;
+    text-align: center;
+    background-color: grey;
+    color: white;
+}
