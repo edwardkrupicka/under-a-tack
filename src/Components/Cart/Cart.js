@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Cart.scss';
 
 const Cart = () => {
-  
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const Cart = () => {
   }, [])
 
 
-  const [cartTotal, setCartTotal] = useState('');
+  const [cartSubtotal, setCartSubtotal] = useState('');
 
   useEffect(() => {
     const calculateSubTotal = () => {
@@ -23,10 +23,16 @@ const Cart = () => {
         sum += (item.quantity * parseInt(item.price));
         return sum;
       }, 0)
-      setCartTotal(subTotal)
+      setCartSubtotal(subTotal)
     }
     calculateSubTotal()
   }, [data])
+
+  const calculateTotal = () => {
+    const total = (cartSubtotal) + (cartSubtotal * .08) + 8
+    console.log(total)
+    return total
+  }
 
 
   const itemsInCart = data.map((product) => {
@@ -41,6 +47,7 @@ const Cart = () => {
     )
   })
 
+
   return (
     <div className="cart">
       <h2 className="cart-header">your cart</h2>
@@ -54,10 +61,10 @@ const Cart = () => {
         {itemsInCart}
       </section>
       <section className="cart-finances">
-        <p className="cart-text">Subtotal ${cartTotal}</p>
-        <p className="cart-text">Tax </p>
-        <p className="cart-text">Shipping Estimate</p>
-        <h3 className="cart-total">Total </h3>
+        <p className="cart-text">Subtotal ${cartSubtotal}</p>
+        <p className="cart-text">Tax: ${(cartSubtotal * .08)} </p>
+        <p className="cart-text">Shipping Estimate: $8</p>
+        <h3 className="cart-total">Total Cost For Your Plan Of A-Tack: ${calculateTotal()}</h3>
       </section>
     </div>
   )
