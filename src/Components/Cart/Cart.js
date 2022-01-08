@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Cart.scss';
 
-const Cart = ({ cartItems }) => {
-  console.log(cartItems)
+const Cart = () => {
+  const [data, setData] = useState([])
 
-  const itemsInCart = cartItems.map((product) => {
+//Thanks for nothing, Eddie
+  useEffect(() => {
+    const fetchData = async (api) => {
+      const response = await fetch(api)
+      const responseJson = await response.json()
+      setData(responseJson)
+    }
+    fetchData('http://localhost:3001/api/v1/cart')
+  }, [])
+
+
+  const itemsInCart = data.map((product) => {
     return (
       <div className="single-item"
         key={product.id}>
