@@ -24,16 +24,16 @@ describe('Under-a-Tack ImagePage', () => {
       it("Should show display title of a specific image", () => {
         cy.get("h2")
         .contains("Last Summer Things Were Greener")
-       })
+       });
 
       it("Should show display artist of a specific image", () => {
             cy.get("p")
             .contains("John Byam Liston Shaw")
-        })
+        });
 
       it("should show a button for add to cart", () => {
             cy.get("button")
             .contains("add to cart")
-        })
+        });
 
   });

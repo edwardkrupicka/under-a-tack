@@ -1,7 +1,7 @@
 describe('Under-a-tack mainPage', () => {
 
     beforeEach(() => {
-        cy.intercept("GET", "http://localhost:3001/api/v1/images/:16" , {
+        cy.intercept("GET", "http://localhost:3001/api/v1/images/" , {
             "data": [
                 {
                 "id": "16",
@@ -49,7 +49,7 @@ describe('Under-a-tack mainPage', () => {
       });
 
     it('Should be able to visit the page and render the Title"', () => {
-        cy.get("div.App")
+        cy.get("h1")
         .contains("Under-A-Tack")
     });
 
@@ -60,5 +60,5 @@ describe('Under-a-tack mainPage', () => {
 
     it("Should display images", () => {
         cy.get("img")
-    })
+    });
   });
