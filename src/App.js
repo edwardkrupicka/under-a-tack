@@ -9,6 +9,7 @@ import Cart from './Components/Cart/Cart';
 const App = () => {
 
   const [data, setData] = useState([])
+  const [cartItems, setCartItems] = useState([])
 
   useEffect(() => {
     const fetchData = async (api) => {
@@ -19,13 +20,20 @@ const App = () => {
     fetchData('http://localhost:3001/api/v1/images')
   }, [])
 
+  const addToCart = async (itemId) => {
+    const newItem = data.find((item) => item.id === itemId)
+    console.log('newItem<><><>', newItem)
+    await setCartItems([...cartItems, newItem])
+    console.log("cartItems", cartItems)
+  }
+
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route path='/' element={<Grid data={data}/>} />
-        <Route path='/images/:id' element={<ImagePage />} />
-        <Route path='/cart' element={<Cart />} />
+        <Route path='/' element={<Grid data={data} />} />
+        <Route path='/images/:id' element={<ImagePage addToCart={addToCart}/>} />
+        <Route path='/cart' element={<Cart items={cartItems} />} />
       </Routes>
     </div>
   );
