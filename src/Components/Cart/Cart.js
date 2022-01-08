@@ -5,6 +5,15 @@ const Cart = () => {
   const [data, setData] = useState([])
 
 //Thanks for nothing, Eddie
+
+// const calculateSubTotal = () => {
+//   const subTotal = data.reduce((sum, item) => {
+//     sum += (item.quantity * parseInt(item.price));
+//     return sum;
+//   }, 0)
+//   setCartTotal(subTotal)
+// }
+
   useEffect(() => {
     const fetchData = async (api) => {
       const response = await fetch(api)
@@ -13,6 +22,24 @@ const Cart = () => {
     }
     fetchData('http://localhost:3001/api/v1/cart')
   }, [])
+
+  const [cartTotal, setCartTotal] = useState('');
+
+  // set the cart total based on the quantities of each item in the cart
+  // iterate through the cart, select the quantities of each item, and multiply by the price property
+
+useEffect(() => {
+  const calculateSubTotal = () => {
+    const subTotal = data.reduce((sum, item) => {
+      sum += (item.quantity * parseInt(item.price));
+      return sum;
+    }, 0)
+    setCartTotal(subTotal)
+  }
+  calculateSubTotal()
+}, [data])
+
+
 
 
   const itemsInCart = data.map((product) => {
@@ -40,10 +67,10 @@ const Cart = () => {
         {itemsInCart}
       </section>
       <section className="cart-finances">
-        <p className="cart-text">Subtotal</p>
+        <p className="cart-text">Subtotal ${cartTotal}</p>
         <p className="cart-text">Tax </p>
         <p className="cart-text">Shipping Estimate</p>
-        <h3 className="cart-total">Total</h3>
+        <h3 className="cart-total">Total </h3>
       </section>
     </div>
   )
