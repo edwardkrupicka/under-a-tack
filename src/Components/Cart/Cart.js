@@ -2,17 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Cart.scss';
 
 const Cart = () => {
-  const [data, setData] = useState([])
-
-//Thanks for nothing, Eddie
-
-// const calculateSubTotal = () => {
-//   const subTotal = data.reduce((sum, item) => {
-//     sum += (item.quantity * parseInt(item.price));
-//     return sum;
-//   }, 0)
-//   setCartTotal(subTotal)
-// }
+  
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async (api) => {
@@ -23,23 +14,19 @@ const Cart = () => {
     fetchData('http://localhost:3001/api/v1/cart')
   }, [])
 
+
   const [cartTotal, setCartTotal] = useState('');
 
-  // set the cart total based on the quantities of each item in the cart
-  // iterate through the cart, select the quantities of each item, and multiply by the price property
-
-useEffect(() => {
-  const calculateSubTotal = () => {
-    const subTotal = data.reduce((sum, item) => {
-      sum += (item.quantity * parseInt(item.price));
-      return sum;
-    }, 0)
-    setCartTotal(subTotal)
-  }
-  calculateSubTotal()
-}, [data])
-
-
+  useEffect(() => {
+    const calculateSubTotal = () => {
+      const subTotal = data.reduce((sum, item) => {
+        sum += (item.quantity * parseInt(item.price));
+        return sum;
+      }, 0)
+      setCartTotal(subTotal)
+    }
+    calculateSubTotal()
+  }, [data])
 
 
   const itemsInCart = data.map((product) => {

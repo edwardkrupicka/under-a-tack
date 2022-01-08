@@ -21,20 +21,6 @@ const App = () => {
   }, [])
 
 
-  // useEffect(() => {
-  // const addToCart = async (itemId) => {
-  //   const newItem = data.find((item) => item.id === itemId)
-  //   await fetch('http://localhost:3001/api/v1/cart', {
-  //     method: 'POST',
-  //     body: JSON.stringify(newItem),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //       .then(res => res.json())
-  //       .then(resData => setCartItems([...cartItems, resData]))
-  //       .catch(err => console.log(err))
-  //   })
-  // }
 
   // }, [])
   // fetch(url, {

@@ -4,10 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const ImagePage = () => {
+
   const [newData, setNewData] = useState([]);
 
   const locationId = useLocation().pathname.split(':')[1]
-
+  
 
   useEffect(() => {
     const fetchData = async (api) => {
@@ -18,9 +19,8 @@ const ImagePage = () => {
     fetchData(`http://localhost:3001/api/v1/images/${locationId}`)
   }, [])
 
+
   const addToCart = async () => {
-
-
     await fetch('http://localhost:3001/api/v1/cart', {
       method: 'POST',
       headers: {
@@ -29,9 +29,9 @@ const ImagePage = () => {
       body: JSON.stringify(newData)
     })
         .then(res => res.json())
-        // .then(data => data.quantity = parseInt(data.quantity) + 1)
         .catch(err => console.log(err))
   }
+
 
   return (
     <div className='image-page'>
