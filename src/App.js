@@ -11,6 +11,8 @@ const App = () => {
 
   const [data, setData] = useState([])
   const [cartItems, setCartItems] = useState([])
+  const [favorities, setFavorites] = useState([])
+  console.log(favorities)
 
   useEffect(() => {
     const fetchData = async (api) => {
@@ -33,8 +35,8 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<Grid data={data} />} />
-        <Route path='/images/:id' element={<ImagePage addToCart={addToCart}/>} />
-        <Route path='/favorites' element={<Favorites />} />
+        <Route path='/images/:id' element={<ImagePage addToCart={addToCart} favorites={favorities} setFavorites={setFavorites}/>} />
+        <Route path='/favorites' element={<Favorites favorites={favorities} setFavorites={setFavorites}/>} />
         <Route path='/cart' element={<Cart items={cartItems} />} />
       </Routes>
     </div>
