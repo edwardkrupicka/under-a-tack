@@ -26,9 +26,11 @@ describe('Under-a-tack mainPage', () => {
         cy.visit('http://localhost:3000');
       });
 
-    it('Should be able to visit the page and render the Title"', () => {
-        cy.get("h1")
-        .contains("Under-A-Tack")
+    it('should be able to visit the page and render the site\'s title', () => {
+        cy.url().should('eq','http://localhost:3000/')
+        cy.get('header')
+        .get('h1')
+        .contains('Under-A-Tack')
     });
 
     // it('Should be able to visit the page and display Navbar"', () => {
