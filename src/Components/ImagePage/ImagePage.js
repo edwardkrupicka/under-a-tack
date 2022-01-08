@@ -3,7 +3,7 @@ import '../Card/Card'
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const ImagePage = ({ addToCart }) => {
+const ImagePage = () => {
   const [newData, setNewData] = useState([]);
 
   const locationId = useLocation().pathname.split(':')[1]
