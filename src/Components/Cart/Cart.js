@@ -29,10 +29,13 @@ const Cart = () => {
   }, [data])
 
   const calculateTotal = () => {
-    const total = (cartSubtotal) + (cartSubtotal * .08) + 8
-    console.log(total)
-    return total
+    if (cartSubtotal) {
+      const total = (cartSubtotal) + (cartSubtotal * .08) + 8
+      console.log(total)
+      return total
+    } return 0
   }
+
 
 
   const itemsInCart = data.map((product) => {
@@ -63,7 +66,7 @@ const Cart = () => {
       <section className="cart-finances">
         <p className="cart-text">Subtotal ${cartSubtotal}</p>
         <p className="cart-text">Tax: ${(cartSubtotal * .08)} </p>
-        <p className="cart-text">Shipping Estimate: $8</p>
+        <p className="cart-text">{cartSubtotal ? "Shipping: $8" : "Shipping : $0"}</p>
         <h3 className="cart-total">Total Cost For Your Plan Of A-Tack: ${calculateTotal()}</h3>
       </section>
     </div>
