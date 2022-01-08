@@ -1,8 +1,7 @@
 .image-page {
     height: 100vh;
     display: flex;
-    flex-direction: columns;
-    text-align: left;
+
 }
 
 img {
@@ -12,6 +11,7 @@ img {
 
 article {
     margin-top: 10vh;
+    flex-direction: column;
 }
 
 h2 {

@@ -21,11 +21,13 @@ const ImagePage = () => {
 	return (
 		<div className='image-page'>
 			<img src={newData.url}/>
-			<h2>Title: {newData.title}</h2>
-			<p>Artist: {newData.artist}</p>
-			<p>Color: {newData.color}</p>
-			<p>Type: {newData.type}</p> 
-			<button> add to cart</button>
+			<article>
+				<h2>Title: {newData.title}</h2>
+				<p>Artist: {newData.artist}</p>
+				<p>Color: {newData.color}</p>
+				<p>Type: {newData.type}</p> 
+				<button> add to cart</button>
+			</article>
 		</div>
 
 
