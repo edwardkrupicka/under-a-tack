@@ -4,41 +4,50 @@ import './Cart.scss';
 const Cart = () => {
 
   const [data, setData] = useState([]);
+  const [cartSubtotal, setCartSubtotal] = useState('');
+  const [cart, setCart]= useState([])
 
   useEffect(() => {
     const fetchData = async (api) => {
       const response = await fetch(api)
       const responseJson = await response.json()
-      setData(responseJson)
+      setCart(responseJson)
     }
     fetchData('http://localhost:3001/api/v1/cart')
   }, [])
 
-
-  const [cartSubtotal, setCartSubtotal] = useState('');
-
   useEffect(() => {
     const calculateSubTotal = () => {
-      const subTotal = data.reduce((sum, item) => {
+      const subTotal = cart.reduce((sum, item) => {
         sum += (item.quantity * parseInt(item.price));
         return sum;
       }, 0)
       setCartSubtotal(subTotal)
     }
     calculateSubTotal()
-  }, [data])
+  }, [cart])
 
   const calculateTotal = () => {
     if (cartSubtotal) {
       const total = (cartSubtotal) + (cartSubtotal * .08) + 8
-      console.log(total)
       return total
-    } return 0
+    }
+    return 0
   }
 
+    // const deleteCartItem = () => {
+    //   fetch('http://localhost:3001/api/v1/cart', {
+    //     method: 'DELETE',
+    //     headers : {
+    //       'Content-Type' : 'application/json'
+    //     }
+    //   })
+    //   .then(() => setCart(data))
+    //   .then(console.log(cart, data))
+    // }
+  
 
-
-  const itemsInCart = data.map((product) => {
+  const itemsInCart = cart.map((product) => {
     console.log(product.quantity)
     return (
       <div className="single-item"
@@ -46,6 +55,11 @@ const Cart = () => {
         <img src={product.url} alt={`${product.title} by ${product.artist}`}></img>
         <p>{product.quantity}</p>
         <p>{product.price}</p>
+        <button className="remove-item"
+          // onClick={deleteCartItem}
+        >
+          Remove From Cart
+        </button>
       </div>
     )
   })
