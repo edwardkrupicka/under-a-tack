@@ -1,14 +1,23 @@
 import './Card.scss';
 import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
-const Card = ({ id, url, title, color, artist, type }) => {
+const Card = ({ id, url, title, color, artist, type, favorited, handleFavoritesClick }) => {
+  const [newData, setNewData] = useState({ id, url, title, color, artist, type, favorited });
+
+  const handleClick = () => {
+    handleFavoritesClick(newData)
+    newData.favorited = !newData.favorited
+    console.log(newData.favorited)
+  }
 
   return (
-    <Link to={`images/:${id}`}>
-      <article className="card" key={id} >
-        <img src={url} alt={title} id={id}/>
-      </article>
-    </Link>
+    <article className="card" key={id} >
+      <Link to={`/images/:${id}`}>
+          <img src={url} alt={title} id={id}/>
+      </Link>
+          <button className={newData.favorited === true ? 'favOn' : 'favOff'} onClick={() => handleClick() }>FAVORITE</button>
+    </article>
   )
 }
 
