@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Cart.scss';
 
 const Cart = () => {
@@ -52,12 +52,10 @@ const Cart = () => {
     return (
       <div className="single-item"
         key={product.id}>
-        <img src={product.url} alt={`${product.title} by ${product.artist}`}></img>
-        <p>{product.quantity}</p>
+        <img src={product.url} alt={`${product.title} by ${product.artist}`} />
+        <p></p>
         <p>{product.price}</p>
-        <button className="remove-item"
-          // onClick={deleteCartItem}
-        >
+        <button className="remove-item">
           Remove From Cart
         </button>
       </div>
