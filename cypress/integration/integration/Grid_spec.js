@@ -1,7 +1,7 @@
 describe('Grid', () => {
     beforeEach(() => {
         cy.intercept('GET', 'http://localhost:3001/api/v1/' , {
-          statusCode: 404,
+          statusCode: 200,
           body: {
             images: [
               {
