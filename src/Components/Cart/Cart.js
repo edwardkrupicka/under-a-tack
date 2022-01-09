@@ -1,45 +1,67 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Cart.scss';
 
 const Cart = () => {
-  
+
   const [data, setData] = useState([]);
+  const [cartSubtotal, setCartSubtotal] = useState('');
+  const [cart, setCart]= useState([])
 
   useEffect(() => {
     const fetchData = async (api) => {
       const response = await fetch(api)
       const responseJson = await response.json()
-      setData(responseJson)
+      setCart(responseJson)
     }
     fetchData('http://localhost:3001/api/v1/cart')
   }, [])
 
-
-  const [cartTotal, setCartTotal] = useState('');
-
   useEffect(() => {
     const calculateSubTotal = () => {
-      const subTotal = data.reduce((sum, item) => {
+      const subTotal = cart.reduce((sum, item) => {
         sum += (item.quantity * parseInt(item.price));
         return sum;
       }, 0)
-      setCartTotal(subTotal)
+      setCartSubtotal(subTotal)
     }
     calculateSubTotal()
-  }, [data])
+  }, [cart])
 
+  const calculateTotal = () => {
+    if (cartSubtotal) {
+      const total = (cartSubtotal) + (cartSubtotal * .08) + 8
+      return total
+    }
+    return 0
+  }
 
-  const itemsInCart = data.map((product) => {
+    // const deleteCartItem = () => {
+    //   fetch('http://localhost:3001/api/v1/cart', {
+    //     method: 'DELETE',
+    //     headers : {
+    //       'Content-Type' : 'application/json'
+    //     }
+    //   })
+    //   .then(() => setCart(data))
+    //   .then(console.log(cart, data))
+    // }
+  
+
+  const itemsInCart = cart.map((product) => {
     console.log(product.quantity)
     return (
       <div className="single-item"
         key={product.id}>
-        <img src={product.url} alt={`${product.title} by ${product.artist}`}></img>
-        <p>{product.quantity}</p>
+        <img src={product.url} alt={`${product.title} by ${product.artist}`} />
+        <p></p>
         <p>{product.price}</p>
+        <button className="remove-item">
+          Remove From Cart
+        </button>
       </div>
     )
   })
+
 
   return (
     <div className="cart">
@@ -54,10 +76,10 @@ const Cart = () => {
         {itemsInCart}
       </section>
       <section className="cart-finances">
-        <p className="cart-text">Subtotal ${cartTotal}</p>
-        <p className="cart-text">Tax </p>
-        <p className="cart-text">Shipping Estimate</p>
-        <h3 className="cart-total">Total </h3>
+        <p className="cart-text">Subtotal ${cartSubtotal}</p>
+        <p className="cart-text">Tax: ${(cartSubtotal * .08)} </p>
+        <p className="cart-text">{cartSubtotal ? "Shipping: $8" : "Shipping : $0"}</p>
+        <h3 className="cart-total">Total Cost For Your Plan Of A-Tack: ${calculateTotal()}</h3>
       </section>
     </div>
   )
