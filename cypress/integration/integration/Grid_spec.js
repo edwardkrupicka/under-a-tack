@@ -32,12 +32,7 @@ describe('Grid', () => {
         .get('h1')
         .contains('Under-A-Tack')
     });
-
-    // it('Should be able to visit the page and display Navbar"', () => {
-    //     cy.get("nav")
-    //     .contains("watercolor")
-    // });
-
+    
     it('should contain a grid full of cards that contain images', () => {
         cy.get('.grid-container')
         .get('a')

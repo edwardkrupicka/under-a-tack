@@ -49,6 +49,20 @@ describe('imagePage', () => {
     .contains('Under-A-Tack')
   })
 
+  it('should have a button that links to the base url', () => {
+    cy.get('header')
+    .get('.button-container')
+    .get('a').contains('Home')
+    .should('have.attr', 'href').and('include','/')
+  })
+
+  it('should have a button that links to the /cart endpoint', () => {
+    cy.get('header')
+    .get('.button-container')
+    .get('a').contains('Cart')
+    .should('have.attr', 'href').and('include','/cart')
+  })
+
   it("should display the current image\'s title, artist, color, and type", () => {
     cy.get('.image-page')
     .get('h2')
@@ -62,14 +76,17 @@ describe('imagePage', () => {
 
   });
 
-  it('should display the current image\'s artist', () => {
-    cy.get("p")
-    .contains("John Byam Liston Shaw")
+  it("should have an 'add to cart' button ", () => {
+    cy.get('.image-page')
+    .get('button')
+    .get('article')
+    .get('button')
+    .contains("add to cart")
   });
 
-  it("should show a button for add to cart", () => {
-    cy.get("button")
-      .contains("add to cart")
-  });
-
+  it('should display the current image', () => {
+    cy.get('.image-page')
+    .get('img')
+    .should('have.attr', 'src', 'https://images.unsplash.com/photo-1577081320692-6eff449819c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=896&q=80' )
+  })
 });
