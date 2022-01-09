@@ -1,4 +1,4 @@
-describe('Main Page', () => {
+describe('Grid', () => {
     beforeEach(() => {
         cy.intercept('GET', 'http://localhost:3001/api/v1/' , {
           statusCode: 404,
@@ -65,5 +65,16 @@ describe('Main Page', () => {
       .get('.button-container')
       .get('a').contains('Cart')
       .should('have.attr', 'href').and('include','/cart')
+    })
+
+    it('should link to the image\'s details upon clicking', () => {
+      cy.get('.grid-container')
+      .get('article')
+      .get('.card')
+      .get('[href="/images/:16"]')
+      .click()
+      .get('.grid-container')
+      .should('not.exist')
+      cy.url().should('eq','http://localhost:3000/images/:16')
     })
   });
