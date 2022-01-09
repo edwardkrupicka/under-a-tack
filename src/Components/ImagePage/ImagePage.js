@@ -3,7 +3,7 @@ import '../Card/Card'
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const ImagePage = () => {
+const ImagePage = ({ handleFavoritesClick }) => {
   const [newData, setNewData] = useState([]);
 
   const locationId = useLocation().pathname.split(':')[1]
@@ -31,6 +31,11 @@ const ImagePage = () => {
         .catch(err => console.log(err))
   }
 
+  const handleClick = (newData) => {
+    handleFavoritesClick(newData)
+    setNewData(newData => ({ ...newData, favorited: !newData.favorited }));
+  }
+
 
   return (
     <div className='image-page'>
@@ -41,10 +46,9 @@ const ImagePage = () => {
         <p className='image-description' >Color: {newData.color}</p>
         <p className='image-description' >Type: {newData.type}</p>
         <button className="cartButton" onClick={() => addToCart(locationId)}> add to cart</button>
+        <button className={newData.favorited ? 'favOn' : 'favOff'} onClick={() => handleClick(newData)}>FAVORITE</button>
       </article>
     </div>
-
-
   )
 
 }
