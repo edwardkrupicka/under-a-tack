@@ -53,10 +53,17 @@ describe('Main Page', () => {
       .get('[href="/images/:16"]')
     })
 
-    it('should have text that links to the base url', () => {
+    it('should have a button that links to the base url', () => {
       cy.get('header')
       .get('.button-container')
       .get('a').contains('Home')
       .should('have.attr', 'href').and('include','/')
+    })
+
+    it('should have a button that links to the /cart endpoint', () => {
+      cy.get('header')
+      .get('.button-container')
+      .get('a').contains('Cart')
+      .should('have.attr', 'href').and('include','/cart')
     })
   });
