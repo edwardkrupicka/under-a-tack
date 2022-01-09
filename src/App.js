@@ -25,7 +25,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Grid data={data} />} />
         <Route path='/images/:id' element={<ImagePage />} />
-        <Route path='/cart' element={<Cart items={cartItems} />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
     </div>
   );
