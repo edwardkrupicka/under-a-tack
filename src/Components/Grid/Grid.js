@@ -12,8 +12,6 @@ const Grid = ({ data }) => {
       color={element.color}
       artist={element.artist}
       type={element.type}
-      quantity={element.quantity}
-      price={element.price}
     />
   })
 

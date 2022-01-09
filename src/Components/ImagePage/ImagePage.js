@@ -7,7 +7,7 @@ const ImagePage = () => {
   const [newData, setNewData] = useState([]);
 
   const locationId = useLocation().pathname.split(':')[1]
-  
+
 
   useEffect(() => {
     const fetchData = async (api) => {
@@ -18,7 +18,7 @@ const ImagePage = () => {
     fetchData(`http://localhost:3001/api/v1/images/${locationId}`)
   }, [])
 
-
+  
   const addToCart = async () => {
     await fetch('http://localhost:3001/api/v1/cart', {
       method: 'POST',
@@ -30,6 +30,7 @@ const ImagePage = () => {
         .then(res => res.json())
         .catch(err => console.log(err))
   }
+
 
 
   return (
