@@ -89,4 +89,12 @@ describe('imagePage', () => {
     .get('img')
     .should('have.attr', 'src', 'https://images.unsplash.com/photo-1577081320692-6eff449819c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=896&q=80' )
   })
+
+  it('should be able to navigate to the /cart endpoint', () => {
+    cy.get('header')
+    .get('.button-container')
+    .get('a').contains('Home')
+    .should('have.attr', 'href').and('include','/cart')
+    .click()
+  })
 });
