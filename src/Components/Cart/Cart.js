@@ -52,7 +52,7 @@ const Cart = () => {
     return (
       <div className="single-item"
         key={product.id}>
-        <img src={product.url} alt={`${product.title} by ${product.artist}`}></img>
+        <img className={'cart-img'} src={product.url} alt={`${product.title} by ${product.artist}`}></img>
         <p>{product.quantity}</p>
         <p>{product.price}</p>
         <button className="remove-item"
