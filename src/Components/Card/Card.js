@@ -2,7 +2,7 @@ import './Card.scss';
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
-const Card = ({ id, url, title, color, artist, type, favorited, handleFavoritesClick }) => {
+const Card = ({ id, url, title, color, artist, type, favorited, quantity, price, handleFavoritesClick }) => {
   const [newData, setNewData] = useState({ id, url, title, color, artist, type, favorited });
 
   const handleClick = () => {

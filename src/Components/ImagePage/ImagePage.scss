@@ -1,8 +1,45 @@
-.favOn {
-  background-color: red;
-  color: white;
-}
-.favOff {
-  background-color: white;
+.image-page {
+    height: 100vh;
+    display: flex;
 
+}
+
+.image-page-img {
+    border: 3px green solid;
+    padding: 10vh 5vh 10vh 5vh;
+}
+
+.image-container {
+    margin-top: 10vh;
+    flex-direction: column;
+}
+
+.image-title {
+    font-weight: bold;
+    font-size: 4vh;
+}
+
+.image-description {
+    font-size: 3vh;
+    margin-top: 2vh;
+}
+
+.cartButton {
+    margin-top: 2vh;
+    width: 15vh;
+    height: 3vh;
+    font-size: 2vh;
+    margin-right: 40vh;
+    text-align: center;
+    background-color: grey;
+    color: white;
+}
+
+.favOn {
+    background-color: red;
+    color: white;
+}
+
+.favOff {
+    background-color: white;
 }

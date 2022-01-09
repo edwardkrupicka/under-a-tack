@@ -30,13 +30,6 @@ const App = () => {
     fetchFavData()
   }, [])
 
-  const addToCart = async (itemId) => {
-    const newItem = data.find((item) => item.id === itemId)
-    console.log('newItem<><><>', newItem)
-    await setCartItems([...cartItems, newItem])
-    console.log("cartItems", cartItems)
-  }
-  
   const addToFavorites = async (newData) => {
     await fetch('http://localhost:3001/api/v1/favorites', {
       method: 'POST',
@@ -77,9 +70,9 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<Grid data={data} handleFavoritesClick={handleFavoritesClick}/>} />
-        <Route path='/images/:id' element={<ImagePage addToCart={addToCart} favorites={favorites} setFavorites={setFavorites} handleFavoritesClick={handleFavoritesClick}/>} />
+        <Route path='/images/:id' element={<ImagePage favorites={favorites} setFavorites={setFavorites} handleFavoritesClick={handleFavoritesClick}/>} />
         <Route path='/favorites' element={<Favorites favorites={favorites} handleFavoritesClick={handleFavoritesClick}/>} />
-        <Route path='/cart' element={<Cart items={cartItems} />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
     </div>
   );

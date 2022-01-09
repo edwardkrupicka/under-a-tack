@@ -1,10 +1,10 @@
-import './Grid.scss';
+import './FavoritesGrid.scss';
 import Card from '../Card/Card'
 
 
-const Grid = ({ data, handleFavoritesClick}) => {
+const FavoritesGrid = ({ favorites, handleFavoritesClick}) => {
 
-  const cards = data.map((element) => {
+  const cards = favorites.map((element) => {
       return <Card
         id={element.id}
         key={element.id}
@@ -14,8 +14,6 @@ const Grid = ({ data, handleFavoritesClick}) => {
         artist={element.artist}
         type={element.type}
         favorited={element.favorited}
-        quantity={element.quantity}
-        price={element.price}
         handleFavoritesClick={handleFavoritesClick}
       />
     })
@@ -27,4 +25,4 @@ const Grid = ({ data, handleFavoritesClick}) => {
   )
 }
 
-export default Grid;
+export default FavoritesGrid;
