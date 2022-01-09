@@ -14,7 +14,7 @@ const Card = ({ id, url, title, color, artist, type, favorited, handleFavoritesC
   return (
     <article className="card" key={id} >
       <Link to={`/images/:${id}`}>
-          <img src={url} alt={title} id={id}/>
+          <img className='image-card' src={url} alt={title} id={id}/>
       </Link>
           <button className={newData.favorited === true ? 'favOn' : 'favOff'} onClick={() => handleClick() }>FAVORITE</button>
     </article>

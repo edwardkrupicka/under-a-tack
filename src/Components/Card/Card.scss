@@ -7,7 +7,16 @@
   margin: 10px, 10px, 10px;
 }
 
-img {
+.image-card {
   width: 100%;
   box-sizing: border-box;
+}
+
+.favOn {
+  background-color: red;
+  color: white;
+}
+.favOff {
+  background-color: white;
+
 }
