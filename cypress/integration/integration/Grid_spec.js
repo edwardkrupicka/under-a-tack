@@ -12,7 +12,7 @@ describe('Grid', () => {
   });
 
   it('should contain a grid full of cards that contain images', () => {
-    cy.get('.grid-container')
+    cy.get('.grid')
       .get('a')
       .get('article')
       .get('.card')
@@ -20,33 +20,44 @@ describe('Grid', () => {
   });
 
   it('should have a link inside of each card', () => {
-    cy.get('.grid-container')
+    cy.get('.grid')
       .get('article')
       .get('.card')
       .get('[href="/images/:16"]')
   })
 
   it('should have a button that links to the base url', () => {
-    cy.get('header')
+    cy.get('.header')
       .get('.button-container')
-      .get('a').contains('Home')
-      .should('have.attr', 'href').and('include', '/')
+      .get('.nav-link').should('have.attr', 'href').and('include', '/')
+      .get('.home-icon').should('have.attr', 'src').should('include', 'https://www.svgrepo.com/show/334004/home.svg')
+  })
+
+  it('should have a button that links to the /favorites endpoint', () => {
+    cy.get('.header')
+      .get('.button-container')
+      .get('.nav-link').next()
+      .should('have.attr', 'href').and('include', '/favorites')
+      .get('.fav-icon').should('have.attr', 'src').should('include', 'https://www.svgrepo.com/show/333996/heart.svg')
   })
 
   it('should have a button that links to the /cart endpoint', () => {
-    cy.get('header')
+    cy.get('.header')
       .get('.button-container')
-      .get('a').contains('Cart')
+      .get('.nav-link')
+      .next()
+      .next()
       .should('have.attr', 'href').and('include', '/cart')
+      .get('.cart-icon').should('have.attr', 'src').should('include', 'https://www.svgrepo.com/show/333784/cart-alt.svg')
   })
 
   it('should link to the image\'s details upon clicking', () => {
-    cy.get('.grid-container')
+    cy.get('.grid')
       .get('article')
       .get('.card')
       .get('[href="/images/:16"]')
       .click()
-      .get('.grid-container')
+      .get('.grid')
       .should('not.exist')
     cy.url().should('eq', 'http://localhost:3000/images/:16')
   })
