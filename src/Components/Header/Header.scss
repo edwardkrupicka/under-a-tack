@@ -1,22 +1,75 @@
 .header {
   width: 100%;
   height: 70px;
-  border: 2px solid red;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
 }
 
-.button-container {
-  border: 2px solid magenta;
-  height: 75px;
+.title-link {
+  color: lightgray;
+  text-decoration: none;
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  box-sizing: border-box;
+  align-items: center;
+  margin: 0px 15px 0px;
+
+  .title {
+    font-size: 45px;
+  }
 }
 
-h1 {
-  font-size: 50px;
-  font-family: 'Roboto', sans-serif;
+.button-container {
+  height: 100%;
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: space-around;
+  margin: 0px 15px 0px;
 }
+
+.nav-link {
+  text-decoration: none;
+  
+  .home-icon {
+    filter: brightness(0.25);
+    filter: invert(90%);
+    height: 35px;
+    transition: ease 0.7s;
+  }
+  .fav-icon {
+    filter: brightness(0.25);
+    filter: invert(90%);
+    height: 35px;
+    transition: ease 0.7s;
+  }
+  .cart-icon {
+    filter: brightness(0.25);
+    filter: invert(90%);
+    height: 35px;
+    transition: ease 0.1s;
+  }
+  
+}
+
+.nav-link.active {
+
+  .home-icon {
+    // filter: invert(81%) sepia(31%) saturate(6816%) hue-rotate(359deg) brightness(108%) contrast(108%);
+    filter: invert(76%) sepia(36%) saturate(2393%) hue-rotate(354deg) brightness(102%) contrast(80%);
+    height: 35px;
+  }
+  .fav-icon {
+    filter: invert(76%) sepia(36%) saturate(2393%) hue-rotate(354deg) brightness(102%) contrast(80%);
+    height: 35px;
+  }
+  .cart-icon {
+    filter: invert(76%) sepia(36%) saturate(2393%) hue-rotate(354deg) brightness(102%) contrast(80%);
+    height: 35px;
+  }
+  
+}
+
