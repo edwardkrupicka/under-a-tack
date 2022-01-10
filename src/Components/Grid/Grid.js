@@ -1,6 +1,5 @@
 import './Grid.scss';
 import Card from '../Card/Card';
-import Masonry from 'react-masonry-component';
 
 
 const Grid = ({ data, handleFavoritesClick}) => {
