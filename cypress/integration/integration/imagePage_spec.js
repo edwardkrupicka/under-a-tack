@@ -46,7 +46,7 @@ describe('imagePage', () => {
   it('should still render the header after routing', () => {
     cy.get('header')
     .get('h1')
-    .contains('Under-A-Tack')
+    .contains('under a tack!')
   })
 
   it('should have a button that links to the base url', () => {
