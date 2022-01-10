@@ -39,14 +39,20 @@ const ImagePage = ({ handleFavoritesClick }) => {
 
   return (
     <div className='image-page'>
-      <img className='image-page-img' src={newData.url} />
-      <article className='image-container'>
-        <h2 className='image-title' >Title: {newData.title}</h2>
-        <p className='image-description' >Artist: {newData.artist}</p>
-        <p className='image-description' >Color: {newData.color}</p>
-        <p className='image-description' >Type: {newData.type}</p>
-        <button className="cartButton" onClick={() => addToCart(locationId)}> add to cart</button>
-        <button className={newData.favorited ? 'favOn' : 'favOff'} onClick={() => handleClick(newData)}>FAVORITE</button>
+      <div className='image-container'>
+        <img className='image-page-img' src={newData.url} />
+      </div>
+      <article className='info-wrapper'>
+        <div className='description-container'>
+          <h2 className='title' >{newData.title}</h2>
+          <p className='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p className='artist' >Artist: {newData.artist}</p>
+          <p className='type' >Type: {newData.type}</p>
+        </div>
+        <div className='button-wrapper'>
+          <button className="cartButton" onClick={() => addToCart(locationId)}> add to cart</button>
+          <button className={newData.favorited ? 'favButton active' : 'favButton'} onClick={() => handleClick(newData)}>FAVORITE</button>
+        </div>
       </article>
     </div>
   )

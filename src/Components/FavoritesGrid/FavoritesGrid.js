@@ -19,7 +19,7 @@ const FavoritesGrid = ({ favorites, handleFavoritesClick}) => {
     })
 
   return (
-    <section className="grid-container">
+    <section className="fav-grid-container">
       {cards}
     </section>
   )
