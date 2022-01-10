@@ -1,5 +1,6 @@
 import './Grid.scss';
-import Card from '../Card/Card'
+import Card from '../Card/Card';
+import Masonry from 'react-masonry-component';
 
 
 const Grid = ({ data, handleFavoritesClick}) => {
@@ -21,7 +22,7 @@ const Grid = ({ data, handleFavoritesClick}) => {
     })
 
   return (
-    <section className="grid-container">
+    <section className="grid">
       {cards}
     </section>
   )
