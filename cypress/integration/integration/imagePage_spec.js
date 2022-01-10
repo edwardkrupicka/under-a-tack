@@ -50,28 +50,41 @@ describe('imagePage', () => {
   })
 
   it('should have a button that links to the base url', () => {
-    cy.get('header')
-    .get('.button-container')
-    .get('a').contains('Home')
-    .should('have.attr', 'href').and('include','/')
+    cy.get('.header')
+      .get('.button-container')
+      .get('.nav-link').should('have.attr', 'href').and('include', '/')
+      .get('.home-icon').should('have.attr', 'src').should('include', 'https://www.svgrepo.com/show/334004/home.svg')
+  })
+
+  it('should have a button that links to the /favorites endpoint', () => {
+    cy.get('.header')
+      .get('.button-container')
+      .get('.nav-link').next()
+      .should('have.attr', 'href').and('include', '/favorites')
+      .get('.fav-icon').should('have.attr', 'src').should('include', 'https://www.svgrepo.com/show/333996/heart.svg')
   })
 
   it('should have a button that links to the /cart endpoint', () => {
-    cy.get('header')
-    .get('.button-container')
-    .get('a').contains('Cart')
-    .should('have.attr', 'href').and('include','/cart')
+    cy.get('.header')
+      .get('.button-container')
+      .get('.nav-link')
+      .next()
+      .next()
+      .should('have.attr', 'href').and('include', '/cart')
+      .get('.cart-icon').should('have.attr', 'src').should('include', 'https://www.svgrepo.com/show/333784/cart-alt.svg')
   })
 
-  it("should display the current image\'s title, artist, color, and type", () => {
+  it("should display the current image\'s title, description, artist and type", () => {
     cy.get('.image-page')
-    .get('h2')
+    .get('.info-wrapper')
+    .get('.description-container')
+    .get('.title')
     .contains("Last Summer Things Were Greener")
-    .get('article > :nth-child(2)')
+    .next()
+    .contains('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+    .next()
     .contains('Artist: John Byam Liston Shaw')
-    .get('article > :nth-child(3)')
-    .contains('Color: greenbluebrownblack')
-    .get('article > :nth-child(4)')
+    .next()
     .contains('Type: painting')
 
   });
@@ -86,8 +99,9 @@ describe('imagePage', () => {
 
   it('should display the current image', () => {
     cy.get('.image-page')
-    .get('img')
-    .should('have.attr', 'src', 'https://images.unsplash.com/photo-1577081320692-6eff449819c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=896&q=80' )
+    .get('.image-container')
+    .get('.image-page-img')
+    .should('have.attr', 'src').should('include', 'https://images.unsplash.com/photo-1577081320692-6eff449819c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=896&q=80')
   })
 
   // it('should be able to navigate to the /cart endpoint', () => {
