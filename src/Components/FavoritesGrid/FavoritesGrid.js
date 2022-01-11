@@ -1,19 +1,12 @@
 import './FavoritesGrid.scss';
-import Card from '../Card/Card'
-
+import FavoritesCard from '../FavoritesCard/FavoritesCard';
 
 const FavoritesGrid = ({ favorites, handleFavoritesClick}) => {
 
   const cards = favorites.map((element) => {
-      return <Card
-        id={element.id}
+      return <FavoritesCard
         key={element.id}
-        url={element.url}
-        title={element.title}
-        color={element.color}
-        artist={element.artist}
-        type={element.type}
-        favorited={element.favorited}
+        element={element}
         handleFavoritesClick={handleFavoritesClick}
       />
     })

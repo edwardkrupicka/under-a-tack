@@ -3,7 +3,7 @@ import '../Card/Card'
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const ImagePage = ({ handleFavoritesClick }) => {
+const ImagePage = ({ addToCart, handleFavoritesClick }) => {
   const [newData, setNewData] = useState([]);
 
   const locationId = useLocation().pathname.split(':')[1]
@@ -18,24 +18,15 @@ const ImagePage = ({ handleFavoritesClick }) => {
     fetchData(`http://localhost:3001/api/v1/images/${locationId}`)
   }, [])
 
-
-  const addToCart = async () => {
-    await fetch('http://localhost:3001/api/v1/cart', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newData)
-    })
-        .then(res => res.json())
-        .catch(err => console.log(err))
-  }
-
-  const handleClick = (newData) => {
+  const favClick = (newData) => {
     handleFavoritesClick(newData)
     setNewData(newData => ({ ...newData, favorited: !newData.favorited }));
   }
 
+  const cartClick = (newData) => {
+    newData.quantity++
+    addToCart(newData)
+  }
 
   return (
     <div className='image-page'>
@@ -50,8 +41,8 @@ const ImagePage = ({ handleFavoritesClick }) => {
           <p className='type' >Type: {newData.type}</p>
         </div>
         <div className='button-wrapper'>
-          <button className="cartButton" onClick={() => addToCart(locationId)}> add to cart</button>
-          <button className={newData.favorited ? 'favButton active' : 'favButton'} onClick={() => handleClick(newData)}>FAVORITE</button>
+          <button className="cartButton" onClick={() => cartClick(newData)} > add to cart</button>
+          <button className={newData.favorited ? 'favButton active' : 'favButton'} onClick={() => favClick(newData)}>FAVORITE</button>
         </div>
       </article>
     </div>
