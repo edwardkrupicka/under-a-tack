@@ -1,6 +1,7 @@
 describe('Grid', () => {
   beforeEach(() => {
     cy.intercept('GET', 'http://localhost:3001/api/v1/images', { fixture: 'images' })
+    .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
     .visit('http://localhost:3000/')
   });
 
@@ -19,8 +20,7 @@ describe('Grid', () => {
   });
 
   it('should have a link inside of each card', () => {
-    cy.intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
-      .get('.grid')
+    cy.get('.grid')
       .get('article')
       .get('.card')
       .get('[href="/images/:16"]')
@@ -59,7 +59,6 @@ describe('Grid', () => {
       .click()
       .get('.grid')
       .should('not.exist')
-      cy.request('images/:16')
     // cy.url().should('eq', 'http://localhost:3000/images/:16')
   })
 });
