@@ -10,9 +10,15 @@ import Favorites from './Components/Favorites/Favorites';
 const App = () => {
 
   const [data, setData] = useState([])
-  const [cartItems, setCartItems] = useState([])
+  const [cart, setCart] = useState([])
   const [favorites, setFavorites] = useState([])
-
+  
+  useEffect(() => {
+    fetchImageData()
+    fetchFavData()
+    fetchCartData()
+  }, [])
+  
   const fetchFavData = async () => {
     const response = await fetch('http://localhost:3001/api/v1/favorites')
     const responseJson = await response.json()
@@ -25,33 +31,72 @@ const App = () => {
     setData(responseJson)
   }
 
-  useEffect(() => {
-    fetchImageData()
-    fetchFavData()
-  }, [])
+  const fetchCartData = async () => {
+    const response = await fetch('http://localhost:3001/api/v1/cart')
+    const responseJson = await response.json()
+    setCart(responseJson)
+  }
 
-  const addToFavorites = async (newData) => {
-    await fetch('http://localhost:3001/api/v1/favorites', {
+  const addToCart = async (newData) => {
+    const config = {
       method: 'POST',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newData)
-    })
-        await (res => res.json())
-        await fetchFavData()
-        await fetchImageData()
-        .catch(err => console.log(err))
+    };
+    try {
+    const fetchResponse = await fetch('http://localhost:3001/api/v1/cart', config)
+    const json = await fetchResponse.json()
+    fetchCartData()
+    console.log(json)
+    } catch (err) {
+      console.log(err)
+      return err;
+    }
+  }
+
+  const addToFavorites = async (newData) => {
+    const config = {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newData)
+    };
+    try {
+    const fetchResponse = await fetch('http://localhost:3001/api/v1/favorites', config)
+    const json = await fetchResponse.json()
+    fetchImageData()
+    fetchFavData()
+    console.log(json)
+    } catch (err) {
+      console.log(err)
+      return err;
+    }
   }
 
   const deleteFromFavorites = async (newData) => {
-    await fetch(`http://localhost:3001/api/v1/favorites/${newData.id}`, {
-      method: 'DELETE'
-    })
-      await ((res) => res.json())
-      await fetchFavData()
-      await fetchImageData()
-      .catch(err => console.log(err))
+    const config = {
+      method: 'Delete',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newData)
+    };
+    try {
+    const fetchResponse = await fetch(`http://localhost:3001/api/v1/favorites/${newData.id}`, config)
+    const json = await fetchResponse.json()
+    fetchImageData()
+    fetchFavData()
+    console.log(json)
+    } catch (err) {
+      console.log(err)
+      return err;
+    }
   }
   
   const handleFavoritesClick = (newData) => {
@@ -61,7 +106,6 @@ const App = () => {
     if(newData.favorited) {
       deleteFromFavorites(newData)
     }
-    console.log(favorites)
   }
 
 
@@ -70,9 +114,9 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<Grid data={data} handleFavoritesClick={handleFavoritesClick}/>} />
-        <Route path='/images/:id' element={<ImagePage favorites={favorites} setFavorites={setFavorites} handleFavoritesClick={handleFavoritesClick}/>} />
+        <Route path='/images/:id' element={<ImagePage addToCart={addToCart} handleFavoritesClick={handleFavoritesClick}/>} />
         <Route path='/favorites' element={<Favorites favorites={favorites} handleFavoritesClick={handleFavoritesClick}/>} />
-        <Route path='/cart' element={<Cart />} />
+        <Route path='/cart' element={<Cart cart={cart} setCart={setCart} fetchCartData={fetchCartData} />} />
       </Routes>
     </div>
   );

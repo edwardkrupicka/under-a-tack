@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Cart.scss';
 
-const Cart = () => {
-
-  const [data, setData] = useState([]);
+const Cart = ({ cart, fetchCartData }) => {
   const [cartSubtotal, setCartSubtotal] = useState('');
-  const [cart, setCart]= useState([])
 
   useEffect(() => {
-    const fetchData = async (api) => {
-      const response = await fetch(api)
-      const responseJson = await response.json()
-      setCart(responseJson)
-    }
-    fetchData('http://localhost:3001/api/v1/cart')
+    fetchCartData()
   }, [])
 
   useEffect(() => {
@@ -48,13 +40,13 @@ const Cart = () => {
   
 
   const itemsInCart = cart.map((product) => {
-    console.log(product.quantity)
+    console.log('cart map', product.title, product.quantity)
     return (
       <div className="single-item"
         key={product.id}>
         <img className={'cart-img'} src={product.url} alt={`${product.title} by ${product.artist}`}></img>
         <p>{product.quantity}</p>
-        <p>{product.price}</p>
+        <p>{product.price * product.quantity}</p>
         <button className="remove-item"
           // onClick={deleteCartItem}
         >
