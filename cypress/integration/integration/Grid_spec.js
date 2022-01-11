@@ -1,11 +1,10 @@
 describe('Grid', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:3001/api/v1/images/', { statusCode: 200, fixture: 'images.json' })
-    cy.visit('http://localhost:3000/');
+    cy.intercept('GET', 'http://localhost:3001/api/v1/images', { fixture: 'images' })
+    .visit('http://localhost:3000/')
   });
 
   it('should be able to visit the page and render the site\'s title', () => {
-    cy.url().should('eq', 'http://localhost:3000/')
     cy.get('header')
       .get('h1')
       .contains('under a tack!')
