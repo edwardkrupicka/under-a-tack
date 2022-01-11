@@ -1,0 +1,54 @@
+.fav-card {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: 230px;
+  height: 340px;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 10px, 10px, 10px;
+  background-color: rgb(16, 16, 16);
+  padding: 11px;
+  justify-content: center;
+  align-items: center;
+  transition: ease 0.3s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+  
+  .fav-image-card {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .fav-img {
+    opacity: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    transition: ease 0.3s;
+    filter: brightness(0.25); filter: invert(90%);
+  
+  }
+  .fav-img:hover {
+    filter: invert(11%) sepia(96%) saturate(3551%) hue-rotate(356deg) brightness(120%) contrast(100%);
+    transition: ease 0.3s;
+    .image-card {
+      transform: scale(1.03);
+    }
+  }
+  
+  .fav-img.active{
+    filter: invert(11%) sepia(96%) saturate(3551%) hue-rotate(356deg) brightness(120%) contrast(100%);
+  }
+
+}
+
+.fav-card:hover .fav-img {
+  opacity: 1;
+}
