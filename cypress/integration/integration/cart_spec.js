@@ -52,17 +52,16 @@ describe('cart', () => {
           .contains('Price')
       })
 
-
-    // it('should have to be able to remove from cart', () => {
-    //     cy.get('.cart')
-    //         .get('article')
-    //         .get('.card')
-    //         .get('[href="/images/:18"]')
-    //         .get('button')
-    //         .click()
-    //         .intercept('GET', 'http://localhost:3001/api/v1/cart', { fixture: 'empty_cart' })
-    //         .visit('http://localhost:3000/cart')
-    // })
+    it('should have to be able to remove from cart', () => {
+        cy.get('.cart')
+            .get('article')
+            .get('.card')
+            .get('[href="/images/:18"]')
+            .get('button')
+            .click()
+            .intercept('GET', 'http://localhost:3001/api/v1/cart', { fixture: 'empty_cart' })
+            .visit('http://localhost:3000/cart')
+    })
     
   
   });
