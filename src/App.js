@@ -57,6 +57,29 @@ const App = () => {
     }
   }
 
+      
+    const deleteCartItem = async (newData) => {
+      console.log('>>>>>>pizza', newData.id, newData.quantity)
+      const config = {
+        method: 'Delete',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newData)
+      };
+      try {
+      const fetchResponse = await fetch(`http://localhost:3001/api/v1/cart/${newData.id}`, config)
+      const json = await fetchResponse.json()
+      fetchCartData()
+      console.log(json)
+      } catch (err) {
+        console.log(err)
+        return err;
+      }
+    }
+    
+
   const addToFavorites = async (newData) => {
     const config = {
       method: 'POST',
@@ -116,7 +139,7 @@ const App = () => {
         <Route path='/' element={<Grid data={data} handleFavoritesClick={handleFavoritesClick}/>} />
         <Route path='/images/:id' element={<ImagePage addToCart={addToCart} handleFavoritesClick={handleFavoritesClick}/>} />
         <Route path='/favorites' element={<Favorites favorites={favorites} handleFavoritesClick={handleFavoritesClick}/>} />
-        <Route path='/cart' element={<Cart cart={cart} setCart={setCart} fetchCartData={fetchCartData} />} />
+        <Route path='/cart' element={<Cart cart={cart} setCart={setCart} deleteCartItem={deleteCartItem} fetchCartData={fetchCartData} />} />
       </Routes>
     </div>
   );
