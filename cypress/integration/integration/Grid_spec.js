@@ -52,6 +52,14 @@ describe('Grid', () => {
       .get('.cart-icon').should('have.attr', 'src').should('include', 'https://www.svgrepo.com/show/333784/cart-alt.svg')
   })
 
+  it('should have a favorite button inside of each card', () => {
+    cy.get('.grid')
+    .get('a')
+    .get('article')
+    .get('.card')
+    .get('.fav-img')
+  })
+
   it('should link to the image\'s details upon clicking', () => {
     cy.get('.grid')
       .get('article')
