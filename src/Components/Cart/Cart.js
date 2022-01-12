@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Cart.scss';
 
-const Cart = ({ cart, fetchCartData }) => {
+const Cart = ({ cart, fetchCartData, deleteCartItem }) => {
   const [cartSubtotal, setCartSubtotal] = useState('');
 
   useEffect(() => {
@@ -26,21 +26,9 @@ const Cart = ({ cart, fetchCartData }) => {
     }
     return 0
   }
-
-    // const deleteCartItem = () => {
-    //   fetch('http://localhost:3001/api/v1/cart', {
-    //     method: 'DELETE',
-    //     headers : {
-    //       'Content-Type' : 'application/json'
-    //     }
-    //   })
-    //   .then(() => setCart(data))
-    //   .then(console.log(cart, data))
-    // }
   
 
   const itemsInCart = cart.map((product) => {
-    console.log('cart map', product.title, product.quantity)
     return (
       <div className="single-item"
         key={product.id}>
@@ -48,7 +36,7 @@ const Cart = ({ cart, fetchCartData }) => {
         <p>{product.quantity}</p>
         <p>{product.price * product.quantity}</p>
         <button className="remove-item"
-          // onClick={deleteCartItem}
+          onClick={() => deleteCartItem(product)}
         >
           Remove From Cart
         </button>
