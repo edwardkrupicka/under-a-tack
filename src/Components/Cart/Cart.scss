@@ -18,7 +18,6 @@
 }
 
 .cart-items {
-  border: 2px solid yellow;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,9 +26,9 @@
 }
 
 .single-item {
+  border: 1px solid lightgray;
   display: flex;
   flex-direction: row;
-  border: 2px solid pink;
   height: 20vh;
   width: 100%;
   margin: 20px;
@@ -44,7 +43,6 @@
 }
 
 .cart-finances {
-  border: 2px solid white;
   display: flex;
   flex-direction: column;
   padding: 10%;
