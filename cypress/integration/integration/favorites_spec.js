@@ -1,17 +1,9 @@
 describe('favorites', () => {
     beforeEach(() => {
-      cy.intercept('GET', 'http://localhost:3001/api/v1/images', { fixture: 'images' })
-      .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'no_favorites' })
-      .visit('http://localhost:3000/')
-      .get('.grid')
-      .get('a')
-      .get('article')
-      .get('.card')
-      .get('[href="/images/:17"]') 
-      .click() 
-      .get('.fav-icon')
-      .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
-      .visit('http://localhost:3000/favorties')
+      cy.intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
+      .intercept('GET', 'http://localhost:3001/api/v1/images', { fixture: 'images' })
+      .intercept('GET', 'http://localhost:3001/api/v1/cart', { fixture: 'cart' })
+      .visit('http://localhost:3000/favorites')
     });
   
     it('should be able to visit the page and render the site\'s title', () => {
@@ -21,7 +13,7 @@ describe('favorites', () => {
     });
 
     it('should be able to render the section\'s title', () => {
-        cy.get('.fav-grid-container')
+        cy.get('.favorites')
           .get('h1')
           .contains('favorites')
     });
@@ -51,11 +43,12 @@ describe('favorites', () => {
         .get('.cart-icon').should('have.attr', 'src').should('include', 'https://www.svgrepo.com/show/333784/cart-alt.svg')
     })
 
-    it('should have a link inside of favorited card', () => {
-        cy.get('.fav-grid-container')
-          .get('article')
-          .get('.card')
-          .get('[href="/images/:17"]')
+    it('should have a favorite button inside of card', () => {
+        cy.get('.favorites')
+          .get('.fav-grid-container')
+          .get('.fav-card')
+          .get('a')
+          .get('.fav-img')
 
       })
 
