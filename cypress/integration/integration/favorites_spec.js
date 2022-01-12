@@ -64,9 +64,9 @@ describe('favorites', () => {
             .get('article')
             .get('.card')
             .get('[href="/images/:17"]')
-            .get('.fav-icon')
+            .get('.fav-img')
             .click()
-            .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'no_favorites' })
+            .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
             .visit('http://localhost:3000/favorties')
     })
     
