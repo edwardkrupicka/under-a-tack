@@ -1,6 +1,6 @@
 describe('cart', () => {
     beforeEach(() => {
-      cy.intercept('GET', 'http://localhost:3001/api/v1/cart', { fixture: 'cart' })
+      cy.intercept('GET', 'http://localhost:3001/api/v1/cart', { fixture: 'cart' }).as('main')
       .intercept('GET', 'http://localhost:3001/api/v1/images', { fixture: 'images' })
       .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
       .visit('http://localhost:3000/cart')
@@ -54,14 +54,32 @@ describe('cart', () => {
           .contains('Price')
       })
 
+    it('should have favorited cart image', () => {
+        cy.get('.cart')
+          .get('.cart-items')
+          .get('.single-item')
+          .get('.cart-img').should('have.attr', 'src').should('include', "https://images.unsplash.com/photo-1580136608260-4eb11f4b24fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1452&q=80")
+
+      })
+
+    it('should have remove from cart button', () => {
+      cy.get('.cart')
+        .get('.cart-items')
+        .get('.single-item')
+        .get('button')
+        .contains('Remove From Cart')
+
+  })
+
     it('should have to be able to remove from cart', () => {
         cy.get('.cart')
           .get('.cart-items')
           .get('.single-item')
-          .get('.remove-item')
-          .click()
-          .intercept('Delete', 'http://localhost:3001/api/v1/cart', [])
-
+          .get('button').click()
+          .intercept('DELETE', 'http://localhost:3001/api/v1/cart/18', { fixture: 'deleteItem' })
+          .intercept('GET', 'http://localhost:3001/api/v1/cart', [])
+          .get('.single-item')
+          .should('not.exist')
     })
     
   
