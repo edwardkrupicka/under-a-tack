@@ -3,21 +3,23 @@
 ### Mod3 2108 Group Project 
 ## Table of Contents
 - [Abstract](#Abstract)
+- [Contributors](#Contributors)
 - [Technologies](#Technologies)
 - [Illustrations](#Illustrations)
 - [Install](#Install)
 - [Wins](#Wins)
 - [Challenges](#Challenges)
-- [Contributors](#Contributors)
-
+- [Future_Iterations](#Future_Iterations)
 
 ## Abstract
 under-a-tac is an application that displays various poster that an user can purchase. If a user clicks on a specific poster, the user is taken to the detail page of that specific poster which will show its title, artist, poster genre, and price. The user clicks add to cart button and can add this specific poster to cart for purchase. The cart page will calculate the total based on the quantity of posters and includes shipping and tax. The user also can favorite a poster by clicking on the heart button of the poster. The poster would be saved to the favorites page. 
+
 ## Contributors
 - [Edward Krupicka](https://github.com/edwardkrupicka)
 - [Tanya Zhuge](https://github.com/tanyazhuge)
 - [Delilah Rose Necrason](https://github.com/delilahrois)
 - [Regan Losey](https://github.com/reganlosey)
+
 ## Technologies
 -  HTML
 -  CSS
@@ -26,6 +28,7 @@ under-a-tac is an application that displays various poster that an user can purc
 -  Router V6
 -  Cypress
 -  Fetch API
+
 ## Illustrations
 
 
@@ -48,5 +51,5 @@ under-a-tac is an application that displays various poster that an user can purc
 - Cypress Testing
 - Heroku Deploy 
 
-### Future Iterations
+### Future_Iterations
 For the future, our group would have liked to add ability to add different sizes of poster and personalization of poster.
