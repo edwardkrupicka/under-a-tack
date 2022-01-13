@@ -23,24 +23,24 @@ const App = () => {
   
   const fetchImageData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/v1/images')
+      const response = await fetch('https://under-a-tack.herokuapp.com/api/v1/images')
       const responseJson = await response.json()
       console.log(responseJson)
       setData(responseJson)
     } catch(err) {
-      setError(error => [...error, `${err.message} at 'http://localhost:3001/api/v1/images'`])
+      setError(error => [...error, `${err.message} at 'https://under-a-tack.herokuapp.com/api/v1/images'`])
       console.log(err.stack)
     }
   }
 
   const fetchFavData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/v1/favorites')
+      const response = await fetch('https://under-a-tack.herokuapp.com/api/v1/favorites')
       const responseJson = await response.json()
       console.log(responseJson)
       setFavorites(responseJson)
     } catch(err) {
-      setError(error => [...error, `${err.message} at 'http://localhost:3001/api/v1/favorites'`])
+      setError(error => [...error, `${err.message} at 'https://under-a-tack.herokuapp.com/api/v1/favorites'`])
       console.log(err.stack)
     }
   }
@@ -48,12 +48,12 @@ const App = () => {
 
   const fetchCartData = async () => {
     try {
-    const response = await fetch('http://localhost:3001/api/v1/cart')
+    const response = await fetch('https://under-a-tack.herokuapp.com/api/v1/cart')
     const responseJson = await response.json()
     console.log(responseJson)
     setCart(responseJson)
     } catch(err) {
-      setError(error => [...error, `${err.message} at 'http://localhost:3001/api/v1/cart'`])
+      setError(error => [...error, `${err.message} at 'https://under-a-tack.herokuapp.com/api/v1/cart'`])
       console.log(err.stack)
     }
   }
@@ -68,7 +68,7 @@ const App = () => {
       body: JSON.stringify(newData)
     };
     try {
-    const fetchResponse = await fetch('http://localhost:3001/api/v1/cart', config)
+    const fetchResponse = await fetch('https://under-a-tack.herokuapp.com/api/v1/cart', config)
     const json = await fetchResponse.json()
     console.log(json)
     if(json.error){
@@ -91,7 +91,7 @@ const App = () => {
       body: JSON.stringify(newData)
     };
     try {
-    const fetchResponse = await fetch(`http://localhost:3001/api/v1/cart/${newData.id}`, config)
+    const fetchResponse = await fetch(`https://under-a-tack.herokuapp.com/api/v1/cart/${newData.id}`, config)
     const json = await fetchResponse.json()
     console.log(json)
     fetchCartData()
@@ -112,7 +112,7 @@ const App = () => {
       body: JSON.stringify(newData)
     };
     try {
-    const fetchResponse = await fetch('http://localhost:3001/api/v1/favorites', config)
+    const fetchResponse = await fetch('https://under-a-tack.herokuapp.com/api/v1/favorites', config)
     const json = await fetchResponse.json()
     console.log(json)
     if(json.error){
@@ -137,7 +137,7 @@ const App = () => {
       body: JSON.stringify(newData)
     };
     try {
-    const fetchResponse = await fetch(`http://localhost:3001/api/v1/favorites/${newData.id}`, config)
+    const fetchResponse = await fetch(`https://under-a-tack.herokuapp.com/api/v1/favorites/${newData.id}`, config)
     const json = await fetchResponse.json()
     console.log(json)
     fetchImageData()
