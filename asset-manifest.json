@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/under-a-tack/static/css/main.a844ba60.css",
+    "main.js": "/under-a-tack/static/js/main.a65a03a1.js",
+    "static/js/787.f20ed83b.chunk.js": "/under-a-tack/static/js/787.f20ed83b.chunk.js",
+    "static/media/error_icon.svg": "/under-a-tack/static/media/error_icon.6afdbbd396e3f51aa1ddd086a1d3e77b.svg",
+    "static/media/trash.svg": "/under-a-tack/static/media/trash.52c14f332636c0a4c49ae37894774e46.svg",
+    "static/media/heart.svg": "/under-a-tack/static/media/heart.654aec10a95b9d7011fd1ea87aa65c98.svg",
+    "index.html": "/under-a-tack/index.html",
+    "static/media/heartFill.svg": "/under-a-tack/static/media/heartFill.9f708b4d234c48a92db2c0671ea21e4d.svg",
+    "main.a844ba60.css.map": "/under-a-tack/static/css/main.a844ba60.css.map",
+    "main.a65a03a1.js.map": "/under-a-tack/static/js/main.a65a03a1.js.map",
+    "787.f20ed83b.chunk.js.map": "/under-a-tack/static/js/787.f20ed83b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a844ba60.css",
+    "static/js/main.a65a03a1.js"
+  ]
+}
