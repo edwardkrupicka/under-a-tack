@@ -1,9 +1,9 @@
 describe('imagePage', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:3001/api/v1/images/16', { fixture: 'image' })
-    .intercept('GET', 'http://localhost:3001/api/v1/images', { fixture: 'images' })
-    .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
-    .visit('http://localhost:3000/images/:16')
+    cy.intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images/:16', { fixture: 'image' })
+    .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images', { fixture: 'images' })
+    .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/favorites', { fixture: 'favorites' })
+    .visit('https://under-a-tack.herokuapp.com/api/v1/images/:16')
   });
 
 
@@ -75,7 +75,7 @@ describe('imagePage', () => {
     .get('button')
     .contains('add to cart')
     .click()
-    .intercept('POST', 'http://localhost:3001/api/v1/cart', { fixture: 'cart' })
+    .intercept('POST', 'https://under-a-tack.herokuapp.com/api/v1/cart', { fixture: 'cart' })
     .get('.header')
     .get('.button-container')
     .get('.nav-link')
