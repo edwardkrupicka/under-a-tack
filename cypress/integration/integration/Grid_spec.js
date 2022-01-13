@@ -1,7 +1,7 @@
 describe('Grid', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:3001/api/v1/images', { fixture: 'images' })
-    .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
+    cy.intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images', { fixture: 'images' })
+    .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/favorites', { fixture: 'favorites' })
     .visit('http://localhost:3000/')
   });
 
@@ -59,6 +59,6 @@ describe('Grid', () => {
       .click()
       .get('.grid')
       .should('not.exist')
-    // cy.url().should('eq', 'http://localhost:3000/images/:16')
+    cy.url().should('eq', 'https://under-a-tack.herokuapp.com/api/v1/images/:16')
   })
 });

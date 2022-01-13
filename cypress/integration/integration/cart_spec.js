@@ -3,7 +3,7 @@ describe('cart', () => {
       cy.intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/cart', { fixture: 'cart' })
       .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images', { fixture: 'images' })
       .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/favorites', { fixture: 'favorites' })
-      .visit('https://under-a-tack.herokuapp.com/api/v1/cart')
+      .visit('http://localhost:3000/')
     });
   
     it('should be able to visit the page and render the site\'s title', () => {
