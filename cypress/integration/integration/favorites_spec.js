@@ -46,10 +46,10 @@ describe('favorites', () => {
     it('should have a link inside of favorited card', () => {
         cy.get('.fav-grid-container')
           .get('article')
-          .get('.card')
+          .get('.fav-image-card')
           .get('[href="/images/:17"]')
       })
-      
+
     it('should have a favorite button inside of favorited card', () => {
       cy.get('.favorites')
         .get('.fav-grid-container')
