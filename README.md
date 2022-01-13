@@ -1,6 +1,6 @@
-# under-a-tac 
+# under-a-tac!
 
-### Mod3 2108 Group Project 
+## Mod3 2108 Group Project 
 ## Table of Contents
 - [Abstract](#Abstract)
 - [Contributors](#Contributors)
@@ -49,13 +49,14 @@ Project specs can be found here
 -  [Stretch-Tech](https://frontend.turing.edu/projects/module-3/stretch.html)
 
 ## Install
--  Clone this [repo](https://github.com/edwardkrupicka/under-a-tack) to your machine
+1. Clone this [repo](https://github.com/edwardkrupicka/under-a-tack) to your machine
 -  `cd` into the directory `under-a-tac` in the terminal
 -  Run `npm install` in the terminal
 -  Run `npm start` in the terminal
 -  In the browser go to `http://localhost:3000/`
 
-- Get the server working by clone this [repo](https://github.com/reganlosey/under-a-tack-API)
+
+2.  Get the server working by clone this [repo](https://github.com/reganlosey/under-a-tack-API)
 -  `cd` into the directory `under-a-tac-API` in the terminal
 -  Run `npm install` in the terminal
 -  Run `npm start` in the terminal
