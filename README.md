@@ -6,10 +6,12 @@
 - [Contributors](#Contributors)
 - [Technologies](#Technologies)
 - [Illustrations](#Illustrations)
+- [Specs](#Specs)
 - [Install](#Install)
 - [Wins](#Wins)
 - [Challenges](#Challenges)
 - [Future_Iterations](#Future_Iterations)
+
 
 ## Abstract
 under-a-tac is an application that displays various poster that an user can purchase. If a user clicks on a specific poster, the user is taken to the detail page of that specific poster which will show its title, artist, poster genre, and price. The user clicks add to cart button and can add this specific poster to cart for purchase. The cart page will calculate the total based on the quantity of posters and includes shipping and tax. The user also can favorite a poster by clicking on the heart button of the poster. The poster would be saved to the favorites page. 
@@ -30,7 +32,21 @@ under-a-tac is an application that displays various poster that an user can purc
 -  Fetch API
 
 ## Illustrations
+- Main Page
+![Screen Shot 2022-01-12 at 6 15 46 PM](https://user-images.githubusercontent.com/87670195/149249359-39086f70-8649-4c48-b99f-11c854f070a1.png)
 
+- Poster Page
+![Screen Shot 2022-01-12 at 6 16 09 PM](https://user-images.githubusercontent.com/87670195/149249433-dd879a8d-f9e7-4c27-96c6-bc0ee8834233.png)
+
+- Favorites
+![Screen Shot 2022-01-12 at 6 17 22 PM](https://user-images.githubusercontent.com/87670195/149249472-e5ace7e5-3334-445b-9061-2c50a6064403.png)
+
+- Cart
+![Screen Shot 2022-01-12 at 6 17 03 PM](https://user-images.githubusercontent.com/87670195/149249510-f429f2e9-b41b-4667-8319-cce09e58ccf5.png)
+
+## Specs
+Project specs can be found here
+-  [Stretch-Tech](https://frontend.turing.edu/projects/module-3/stretch.html)
 
 ## Install
 -  Clone this [repo](https://github.com/edwardkrupicka/under-a-tack) to your machine
