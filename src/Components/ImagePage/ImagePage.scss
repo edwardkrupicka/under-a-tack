@@ -63,20 +63,24 @@
 
 .cartButton {
     width: 120px;
-    height: 30px;
-    font-size: 2vh;
+    height: 35px;
+    font-size: 20px;
     text-align: center;
-    background-color: grey;
-    color: white;
+    background-color: rgb(16, 16, 16);
+    color: rgb(231, 231, 231);
     margin: 20px 20px 20px;
+    border-radius: 12px;
 }
 
 .favButton {
-    background-color: lightgray;
+    background-color: rgb(16, 16, 16);
+    color: rgb(231, 231, 231);
     width: 120px;
-    height: 30px;
-    margin: 20px 20px 20px
-
+    height: 35px;
+    text-align: center;
+    margin: 20px 20px 20px;
+    font-size: 20px;
+    border-radius: 12px;
 }
 
 .favButton.active{

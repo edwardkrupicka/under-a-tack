@@ -3,6 +3,7 @@ describe('imagePage', () => {
     cy.intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images/:16', { fixture: 'image' })
     .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images', { fixture: 'images' })
     .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/favorites', { fixture: 'favorites' })
+    .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/cart', { fixture: 'cart' })
     .visit('http://localhost:3000/images/:16')
   });
 
@@ -83,7 +84,10 @@ describe('imagePage', () => {
     .next()
     .should('have.attr', 'href').and('include', '/cart')
     .get('.cart-icon').click()
-    // .intercept('GET', 'http://localhost:3001/api/v1/cart', { fixture: 'cart' })
-    // cy.url().should('eq', 'http://localhost:3000/cart')
+    cy.on('uncaught:exception', (err, runnable) => {
+      return false
   })
+    cy.url().should('eq', 'http://localhost:3000/cart')
+  })
+
 });

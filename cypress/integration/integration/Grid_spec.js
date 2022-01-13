@@ -2,6 +2,7 @@ describe('Grid', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images', { fixture: 'images' })
     .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/favorites', { fixture: 'favorites' })
+    .intercept('GET', 'http://under-a-tack.herokuapp.com/api/v1/cart', { fixture: 'cart' })
     .visit('http://localhost:3000/')
   });
 
@@ -51,14 +52,24 @@ describe('Grid', () => {
       .get('.cart-icon').should('have.attr', 'src').should('include', 'https://www.svgrepo.com/show/333784/cart-alt.svg')
   })
 
+  it('should have a favorite button inside of each card', () => {
+    cy.get('.grid')
+    .get('a')
+    .get('article')
+    .get('.card')
+    .get('.fav-img')
+  })
+
   it('should link to the image\'s details upon clicking', () => {
     cy.get('.grid')
       .get('article')
       .get('.card')
-      .get('[href="/images/:16"]')
-      .click()
+      .get('[href="/images/:16"]').click()
+    cy.on('uncaught:exception', (err, runnable) => {
+        return false
+    })
       .get('.grid')
       .should('not.exist')
-    cy.url().should('eq', 'http://localhost:3000/images/:16')
+      .url().should('eq', 'http://localhost:3000/images/:16')
   })
 });
