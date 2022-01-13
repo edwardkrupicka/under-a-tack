@@ -1,8 +1,8 @@
 {
+  "homepage": "https://edwardkrupicka.github.io/under-a-tack",
   "name": "under-a-tack",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://edwardkrupicka.github.io/under-a-tack",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
@@ -15,13 +15,13 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress:open": "cypress open",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^9.2.1"
+    "cypress": "^9.2.1",
+    "gh-pages": "^3.2.3"
   }
 }
