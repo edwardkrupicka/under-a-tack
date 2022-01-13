@@ -1,9 +1,9 @@
 describe('cart', () => {
     beforeEach(() => {
-      cy.intercept('GET', 'http://localhost:3001/api/v1/cart', { fixture: 'cart' }).as('main')
-      .intercept('GET', 'http://localhost:3001/api/v1/images', { fixture: 'images' })
-      .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
-      .visit('http://localhost:3000/cart')
+      cy.intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/cart', { fixture: 'cart' }).as('main')
+      .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images', { fixture: 'images' })
+      .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/favorites', { fixture: 'favorites' })
+      .visit('https://under-a-tack.herokuapp.com/api/v1/cart')
     });
   
     it('should be able to visit the page and render the site\'s title', () => {

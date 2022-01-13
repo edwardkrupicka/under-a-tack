@@ -1,8 +1,8 @@
 describe('Grid', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:3001/api/v1/images', { fixture: 'images' })
-    .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
-    .intercept('GET', 'http://localhost:3001/api/v1/cart', { fixture: 'cart' })
+    cy.intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images', { fixture: 'images' })
+    .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/favorites', { fixture: 'favorites' })
+    .intercept('GET', 'http://under-a-tack.herokuapp.com/api/v1/cart', { fixture: 'cart' })
     .visit('http://localhost:3000/')
   });
 
@@ -71,11 +71,5 @@ describe('Grid', () => {
       .get('.grid')
       .should('not.exist')
       .url().should('eq', 'http://localhost:3000/images/:16')
- 
-    // .intercept('GET', 'http://localhost:3001/api/v1/cart', { fixture: 'cart' }) 
-    // cy.url().should('eq', 'http://localhost:3000/images/:16')
-    // cy.on('url:changed', (newUrl) => {
-    //   expect(newUrl).to.contain('http://localhost:3000/images/:16')
-    // })
   })
 });
