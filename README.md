@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# under-a-tac!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Mod3 2108 Group Project 
+## Table of Contents
+- [Abstract](#Abstract)
+- [Contributors](#Contributors)
+- [Technologies](#Technologies)
+- [Illustrations](#Illustrations)
+- [Specs](#Specs)
+- [Install](#Install)
+- [Wins](#Wins)
+- [Challenges](#Challenges)
+- [Future_Iterations](#Future_Iterations)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Abstract
+under-a-tac is an application that displays various poster that an user can purchase. If a user clicks on a specific poster, the user is taken to the detail page of that specific poster which will show its title, artist, poster genre, and price. The user clicks add to cart button and can add this specific poster to cart for purchase. The cart page will calculate the total based on the quantity of posters and includes shipping and tax. The user also can favorite a poster by clicking on the heart button of the poster. The poster would be saved to the favorites page. 
 
-### `npm start`
+## Contributors
+- [Edward Krupicka](https://github.com/edwardkrupicka)
+- [Tanya Zhuge](https://github.com/tanyazhuge)
+- [Delilah Rose Necrason](https://github.com/delilahrois)
+- [Regan Losey](https://github.com/reganlosey)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies
+-  HTML
+-  CSS
+-  JavaScript
+-  React
+-  Router V6
+-  Cypress
+-  Fetch API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Illustrations
+- Main Page
+![Screen Shot 2022-01-12 at 6 15 46 PM](https://user-images.githubusercontent.com/87670195/149249359-39086f70-8649-4c48-b99f-11c854f070a1.png)
 
-### `npm test`
+- Poster Page
+![Screen Shot 2022-01-12 at 6 16 09 PM](https://user-images.githubusercontent.com/87670195/149249433-dd879a8d-f9e7-4c27-96c6-bc0ee8834233.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Favorites
+![Screen Shot 2022-01-12 at 6 17 22 PM](https://user-images.githubusercontent.com/87670195/149249472-e5ace7e5-3334-445b-9061-2c50a6064403.png)
 
-### `npm run build`
+- Cart
+![Screen Shot 2022-01-12 at 6 17 03 PM](https://user-images.githubusercontent.com/87670195/149249510-f429f2e9-b41b-4667-8319-cce09e58ccf5.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Specs
+Project specs can be found here
+-  [Stretch-Tech](https://frontend.turing.edu/projects/module-3/stretch.html)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Install
+1. Clone this [repo](https://github.com/edwardkrupicka/under-a-tack) to your machine
+-  `cd` into the directory `under-a-tac` in the terminal
+-  Run `npm install` in the terminal
+-  Run `npm start` in the terminal
+-  In the browser go to `http://localhost:3000/`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+2.  Get the server working by clone this [repo](https://github.com/reganlosey/under-a-tack-API)
+-  `cd` into the directory `under-a-tac-API` in the terminal
+-  Run `npm install` in the terminal
+-  Run `npm start` in the terminal
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Wins
+- React Hooks 
+- Error Handling
+## Challenges
+- Cypress Testing
+- Heroku Deploy 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Future_Iterations
+For the future, our group would have liked to add ability to add different sizes of poster and personalization of poster.
