@@ -1,5 +1,5 @@
-# [under-a-tack!](https://edwardkrupicka.github.io/under-a-tack/)
-## [under-a-tack Express.js repository](https://github.com/reganlosey/under-a-tack-API)
+# [Under-a-tack!](https://edwardkrupicka.github.io/under-a-tack/)
+## [Under-a-tack Express.js repository](https://github.com/reganlosey/under-a-tack-API)
 
 ## Mod3 2108 Group Project 
 ## Table of Contents
@@ -15,7 +15,7 @@
 
 
 ## Abstract
-under-a-tac is an application that displays various poster that an user can purchase. If a user clicks on a specific poster, the user is taken to the detail page of that specific poster which will show its title, artist, poster genre, and price. The user clicks add to cart button and can add this specific poster to cart for purchase. The cart page will calculate the total based on the quantity of posters and includes shipping and tax. The user also can favorite a poster by clicking on the heart button of the poster. The poster would be saved to the favorites page. 
+Under-a-tack is an application that displays various posters that a user can purchase using data fetched from our API. If a user clicks on a specific poster, the user is taken to the detail page of that specific poster which will show its title, artist, poster genre, and price. The user clicks add to cart button and can add this specific poster to the cart for purchase. The cart page will calculate the total based on the quantity of posters and includes shipping and tax. The user also can favorite a poster by clicking on the heart button of the poster. The poster would be saved to the favorites page. 
 
 ## Contributors
 - [Edward Krupicka](https://github.com/edwardkrupicka)
@@ -24,13 +24,14 @@ under-a-tac is an application that displays various poster that an user can purc
 - [Regan Losey](https://github.com/reganlosey)
 
 ## Technologies
--  HTML
--  CSS
+-  HTML / CSS
 -  JavaScript
 -  React
 -  Router V6
 -  Cypress
--  Fetch API
+-  Postico
+-  PostgreSQL
+-  Knex
 
 ## Illustrations
 - Main Page
@@ -46,28 +47,19 @@ under-a-tac is an application that displays various poster that an user can purc
 ![Screen Shot 2022-01-12 at 6 17 03 PM](https://user-images.githubusercontent.com/87670195/149249510-f429f2e9-b41b-4667-8319-cce09e58ccf5.png)
 
 ## Specs
-Project specs can be found here
--  [Stretch-Tech](https://frontend.turing.edu/projects/module-3/stretch.html)
+Project spec can be found [here](https://frontend.turing.edu/projects/module-3/stretch.html)
 
-## Install
-1. Clone this [repo](https://github.com/edwardkrupicka/under-a-tack) to your machine
--  `cd` into the directory `under-a-tac` in the terminal
--  Run `npm install` in the terminal
--  Run `npm start` in the terminal
--  In the browser go to `http://localhost:3000/`
-
-
-2.  Get the server working by clone this [repo](https://github.com/reganlosey/under-a-tack-API)
--  `cd` into the directory `under-a-tac-API` in the terminal
--  Run `npm install` in the terminal
--  Run `npm start` in the terminal
+## View Project
+The finish project can be viewed [here.](https://edwardkrupicka.github.io/under-a-tack/)
+Take a look at our backend Express app [here.](https://github.com/reganlosey/under-a-tack-API)
 
 ## Wins
 - React Hooks 
 - Error Handling
+
 ## Challenges
 - Cypress Testing
 - Heroku Deploy 
 
 ### Future_Iterations
-For the future, our group would have liked to add ability to add different sizes of poster and personalization of poster.
+For the future, our group would have liked to add ability to add different sizes of posters and personalization of posters.
