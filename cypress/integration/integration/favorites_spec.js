@@ -43,24 +43,32 @@ describe('favorites', () => {
         .get('.cart-icon').should('have.attr', 'src').should('include', 'https://www.svgrepo.com/show/333784/cart-alt.svg')
     })
 
-    it('should have a favorite button inside of card', () => {
-        cy.get('.favorites')
-          .get('.fav-grid-container')
-          .get('.fav-card')
-          .get('a')
-          .get('.fav-img')
+    it('should have a favorite button inside of favorited card', () => {
+      cy.get('.favorites')
+        .get('.fav-grid-container')
+        .get('.fav-card')
+        .get('a')
+        .get('.fav-img')
+    })
 
-      })
+    it('should have contain the image of the specific card', () => {
+      cy.get('.favorites')
+        .get('.fav-grid-container')
+        .get('.fav-card')
+        .get('.fav-image-card').should('have.attr', 'src').should('include', "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=816&q=80")
+  })
 
     it('should have to be able to unfavorite card', () => {
-        cy.get('.fav-grid-container')
-            .get('article')
-            .get('.card')
-            .get('[href="/images/:17"]')
-            .get('.fav-img')
-            .click()
-            .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
-            .visit('http://localhost:3000/favorties')
+      cy.get('.favorites')
+        .get('.fav-grid-container')
+        .get('article')
+        .get('.fav-card')
+        .get('.fav-img')
+        .click()
+        .intercept('DELETE', 'http://localhost:3001/api/v1/favorites/17', { fixture: 'deleteFav' })
+        .intercept('GET', 'http://localhost:3001/api/v1/favorites', [])
+        .get('.fav-card')
+        // fav image at which class 
     })
     
   

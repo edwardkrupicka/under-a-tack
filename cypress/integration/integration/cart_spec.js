@@ -52,15 +52,14 @@ describe('cart', () => {
           .contains('Quantity')
           .get('.cart-text')
           .contains('Price')
-      })
+    })
 
-    it('should have favorited cart image', () => {
+    it('should have specific image of item in cart', () => {
         cy.get('.cart')
           .get('.cart-items')
           .get('.single-item')
           .get('.cart-img').should('have.attr', 'src').should('include', "https://images.unsplash.com/photo-1580136608260-4eb11f4b24fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1452&q=80")
-
-      })
+    })
 
     it('should have remove from cart button', () => {
       cy.get('.cart')
@@ -68,8 +67,7 @@ describe('cart', () => {
         .get('.single-item')
         .get('button')
         .contains('Remove From Cart')
-
-  })
+    })
 
     it('should have to be able to remove from cart', () => {
         cy.get('.cart')
