@@ -56,7 +56,6 @@ describe('favorites', () => {
           .get('article')
           .get('.card')
           .get('[href="/images/:17"]')
-
       })
 
     it('should have to be able to unfavorite card', () => {

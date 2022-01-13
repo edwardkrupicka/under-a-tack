@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Cart.scss';
+import trash from '../../svg/trash.svg';
 
 const Cart = ({ cart, fetchCartData, deleteCartItem }) => {
   const [cartSubtotal, setCartSubtotal] = useState('');
@@ -32,14 +33,12 @@ const Cart = ({ cart, fetchCartData, deleteCartItem }) => {
     return (
       <div className="single-item"
         key={product.id}>
-        <img className={'cart-img'} src={product.url} alt={`${product.title} by ${product.artist}`}></img>
-        <p>{product.quantity}</p>
-        <p>{product.price * product.quantity}</p>
-        <button className="remove-item"
-          onClick={() => deleteCartItem(product)}
-        >
-          Remove From Cart
-        </button>
+        <div className='cart-img-container'>
+          <img className={'cart-img'} src={product.url} alt={`${product.title} by ${product.artist}`}></img>
+        </div>
+        <p>Quantity: {product.quantity}</p>
+        <p>Price: ${product.price * product.quantity}</p>
+        <input className="remove-item" type='image' src={trash} onClick={() => deleteCartItem(product)}></input>
       </div>
     )
   })

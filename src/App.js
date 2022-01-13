@@ -46,15 +46,18 @@ const App = () => {
   }
 
 
-  const fetchCartData = async () => {
+  const fetchCartData = async (logError = true) => {
     try {
-    const response = await fetch('http://localhost:3001/api/v1/cart')
-    const responseJson = await response.json()
-    console.log(responseJson)
-    setCart(responseJson)
-    } catch(err) {
+      const response = await fetch('http://localhost:3001/api/v1/cart')
+      const responseJson = await response.json()
+      if(!logError){
+      console.log(responseJson.map())
+      }
+      setCart(responseJson)
+    } 
+    catch(err) {
+      console.error(err)
       setError(error => [...error, `${err.message} at 'http://localhost:3001/api/v1/cart'`])
-      console.log(err.stack)
     }
   }
 
@@ -66,19 +69,20 @@ const App = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newData)
-    };
-    try {
-    const fetchResponse = await fetch('http://localhost:3001/api/v1/cart', config)
-    const json = await fetchResponse.json()
-    console.log(json)
-    if(json.error){
-      throw(json)
     }
-    fetchCartData()
-    } catch (err) {
+    try {
+      const fetchResponse = await fetch('http://localhost:3001/api/v1/cart', config)
+      const json = await fetchResponse.json()
+      if(json.error){
+        throw(json)
+      }
+      console.log(json)
+    }
+    catch (err) {
       console.log(err)
       setError(error => [...error, err.error])
     }
+    fetchCartData()
   }
 
   const deleteCartItem = async (newData) => {
@@ -135,14 +139,17 @@ const App = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newData)
-    };
+    }
+
     try {
-    const fetchResponse = await fetch(`http://localhost:3001/api/v1/favorites/${newData.id}`, config)
-    const json = await fetchResponse.json()
-    console.log(json)
-    fetchImageData()
-    fetchFavData()
-    } catch (err) {
+      const fetchResponse = await fetch(`http://localhost:3001/api/v1/favorites/${newData.id}`, config)
+      const json = await fetchResponse.json()
+      console.log(json)
+      fetchImageData()
+      fetchFavData()
+    }
+
+    catch (err) {
       console.log(err)
       setError(error => [...error, err])
     }

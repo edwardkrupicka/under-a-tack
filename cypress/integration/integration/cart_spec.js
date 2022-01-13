@@ -43,15 +43,6 @@ describe('cart', () => {
         .get('.cart-icon').should('have.attr', 'src').should('include', 'https://www.svgrepo.com/show/333784/cart-alt.svg')
     })
 
-    it('should have item, quantity and price ', () => {
-        cy.get('.cart')
-          .get('.cart-columns')
-          .get('.cart-text')
-          .contains('Item')
-          .contains('Quantity')
-          .contains('Price')
-      })
-
     it('should have to be able to remove from cart', () => {
         cy.get('.cart')
             .get('article')
@@ -63,5 +54,4 @@ describe('cart', () => {
             .visit('http://localhost:3000/cart')
     })
     
-  
-  });
+});
