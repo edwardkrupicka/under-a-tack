@@ -1,7 +1,7 @@
 describe('favorites', () => {
     beforeEach(() => {
-      cy.intercept('GET', 'http://localhost:3001/api/v1/images', { fixture: 'images' })
-      .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'no_favorites' })
+      cy.intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images', { fixture: 'images' })
+      .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/favorites', { fixture: 'no_favorites' })
       .visit('http://localhost:3000/')
       .get('.grid')
       .get('a')
@@ -10,8 +10,8 @@ describe('favorites', () => {
       .get('[href="/images/:17"]') 
       .click() 
       .get('.fav-icon')
-      .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
-      .visit('http://localhost:3000/favorties')
+      .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/favorites', { fixture: 'favorites' })
+      .visit('https://under-a-tack.herokuapp.com/api/v1/favorites')
     });
   
     it('should be able to visit the page and render the site\'s title', () => {
@@ -66,8 +66,8 @@ describe('favorites', () => {
             .get('[href="/images/:17"]')
             .get('.fav-icon')
             .click()
-            .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'no_favorites' })
-            .visit('http://localhost:3000/favorties')
+            .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/favorites', { fixture: 'no_favorites' })
+            .visit('https://under-a-tack.herokuapp.com/api/v1/favorites')
     })
     
   
