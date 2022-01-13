@@ -3,6 +3,7 @@ describe('imagePage', () => {
     cy.intercept('GET', 'http://localhost:3001/api/v1/images/16', { fixture: 'image' })
     .intercept('GET', 'http://localhost:3001/api/v1/images', { fixture: 'images' })
     .intercept('GET', 'http://localhost:3001/api/v1/favorites', { fixture: 'favorites' })
+    .intercept('GET', 'http://localhost:3001/api/v1/cart', { fixture: 'cart' })
     .visit('http://localhost:3000/images/:16')
   });
 
@@ -75,7 +76,6 @@ describe('imagePage', () => {
     .get('button')
     .contains('add to cart')
     .click()
-    .intercept('POST', 'http://localhost:3001/api/v1/cart', { fixture: 'cart' })
     .get('.header')
     .get('.button-container')
     .get('.nav-link')
@@ -83,7 +83,10 @@ describe('imagePage', () => {
     .next()
     .should('have.attr', 'href').and('include', '/cart')
     .get('.cart-icon').click()
-    // .intercept('GET', 'http://localhost:3001/api/v1/cart', { fixture: 'cart' })
-    // cy.url().should('eq', 'http://localhost:3000/cart')
+    cy.on('uncaught:exception', (err, runnable) => {
+      return false
   })
+    cy.url().should('eq', 'http://localhost:3000/cart')
+  })
+
 });
