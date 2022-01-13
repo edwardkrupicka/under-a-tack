@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/under-a-tack/static/css/main.03430248.css",
-    "main.js": "/under-a-tack/static/js/main.e766006f.js",
+    "main.css": "/under-a-tack/static/css/main.2eb58e35.css",
+    "main.js": "/under-a-tack/static/js/main.14a70aa6.js",
     "static/js/787.f20ed83b.chunk.js": "/under-a-tack/static/js/787.f20ed83b.chunk.js",
     "static/media/error_icon.svg": "/under-a-tack/static/media/error_icon.6afdbbd396e3f51aa1ddd086a1d3e77b.svg",
     "static/media/trash.svg": "/under-a-tack/static/media/trash.52c14f332636c0a4c49ae37894774e46.svg",
     "static/media/heart.svg": "/under-a-tack/static/media/heart.654aec10a95b9d7011fd1ea87aa65c98.svg",
     "index.html": "/under-a-tack/index.html",
     "static/media/heartFill.svg": "/under-a-tack/static/media/heartFill.9f708b4d234c48a92db2c0671ea21e4d.svg",
-    "main.03430248.css.map": "/under-a-tack/static/css/main.03430248.css.map",
-    "main.e766006f.js.map": "/under-a-tack/static/js/main.e766006f.js.map",
+    "main.2eb58e35.css.map": "/under-a-tack/static/css/main.2eb58e35.css.map",
+    "main.14a70aa6.js.map": "/under-a-tack/static/js/main.14a70aa6.js.map",
     "787.f20ed83b.chunk.js.map": "/under-a-tack/static/js/787.f20ed83b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.03430248.css",
-    "static/js/main.e766006f.js"
+    "static/css/main.2eb58e35.css",
+    "static/js/main.14a70aa6.js"
   ]
 }
