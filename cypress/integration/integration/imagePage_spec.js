@@ -3,7 +3,7 @@ describe('imagePage', () => {
     cy.intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images/:16', { fixture: 'image' })
     .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images', { fixture: 'images' })
     .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/favorites', { fixture: 'favorites' })
-    .visit('https://under-a-tack.herokuapp.com/api/v1/images/:16')
+    .visit('http://localhost:3000/images/:16')
   });
 
 

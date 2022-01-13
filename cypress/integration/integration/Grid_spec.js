@@ -59,6 +59,6 @@ describe('Grid', () => {
       .click()
       .get('.grid')
       .should('not.exist')
-    cy.url().should('eq', 'https://under-a-tack.herokuapp.com/api/v1/images/:16')
+    cy.url().should('eq', 'http://localhost:3000/images/:16')
   })
 });

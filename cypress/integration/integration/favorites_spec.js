@@ -2,7 +2,7 @@ describe('favorites', () => {
     beforeEach(() => {
       cy.intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/images', { fixture: 'images' })
       .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/favorites', { fixture: 'no_favorites' })
-      .visit('http://localhost:3000/')
+      .visit('http://localhost:3000/favorites')
       .get('.grid')
       .get('a')
       .get('article')

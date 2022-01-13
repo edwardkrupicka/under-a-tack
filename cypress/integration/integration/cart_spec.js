@@ -60,7 +60,7 @@ describe('cart', () => {
             .get('button')
             .click()
             .intercept('GET', 'https://under-a-tack.herokuapp.com/api/v1/cart', { fixture: 'empty_cart' })
-            .visit('https://under-a-tack.herokuapp.com/api/v1/cart')
+            .visit('http://localhost:3000/cart')
     })
     
   
