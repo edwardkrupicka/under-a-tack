@@ -7,7 +7,6 @@ const ImagePage = ({ addToCart, handleFavoritesClick }) => {
   const [newData, setNewData] = useState([]);
 
   const locationId = useLocation().pathname.split(':')[1]
-  
 
   useEffect(() => {
     const fetchData = async (api) => {

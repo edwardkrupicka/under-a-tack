@@ -1,0 +1,35 @@
+.error-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.779);
+  height: 100%;
+  width: 100%;
+	color: rgb(224, 224, 224);
+}
+
+.error-icon {
+	height: 125px;
+	margin-bottom: 40px;
+	filter: brightness(0.25);
+  filter: invert(85%);
+}
+
+.header-message {
+	font-size: 150%;
+	border-bottom: 2px solid rgba(230, 230, 230, 0.768);
+	padding-bottom: 20px;
+	width: 60%;
+	text-align: center;
+}
+
+.error {
+	margin: 30px 15px 15px;
+	font-size: 120%;
+
+}
