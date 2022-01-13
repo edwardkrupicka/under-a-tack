@@ -41,7 +41,7 @@ const ImagePage = ({ addToCart, handleFavoritesClick }) => {
         </div>
         <div className='button-wrapper'>
           <button className="cartButton" onClick={() => cartClick(newData)} > add to cart</button>
-          <button className={newData.favorited ? 'favButton active' : 'favButton'} onClick={() => favClick(newData)}>FAVORITE</button>
+          <button className={newData.favorited ? 'favButton active' : 'favButton'} onClick={() => favClick(newData)}>favorite</button>
         </div>
       </article>
     </div>

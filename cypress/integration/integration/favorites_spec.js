@@ -43,6 +43,13 @@ describe('favorites', () => {
         .get('.cart-icon').should('have.attr', 'src').should('include', 'https://www.svgrepo.com/show/333784/cart-alt.svg')
     })
 
+    it('should have a link inside of favorited card', () => {
+        cy.get('.fav-grid-container')
+          .get('article')
+          .get('.fav-image-card')
+          .get('[href="/images/:17"]')
+      })
+
     it('should have a favorite button inside of favorited card', () => {
       cy.get('.favorites')
         .get('.fav-grid-container')
