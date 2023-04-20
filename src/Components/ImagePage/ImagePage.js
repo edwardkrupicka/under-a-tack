@@ -14,7 +14,7 @@ const ImagePage = ({ addToCart, handleFavoritesClick }) => {
       const responseJson = await response.json()
       setNewData(responseJson)
     }
-    fetchData(`https://under-a-tack.herokuapp.com/api/v1/images/${locationId}`)
+    fetchData(`https://under-a-tack-api.onrender.com/api/v1/images/${locationId}`)
   }, [])
 
   const favClick = (newData) => {
