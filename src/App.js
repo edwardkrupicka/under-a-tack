@@ -23,24 +23,24 @@ const App = () => {
   
   const fetchImageData = async () => {
     try {
-      const response = await fetch('https://under-a-tack.herokuapp.com/api/v1/images')
+      const response = await fetch('https://under-a-tack-api.onrender.com/api/v1/images')
       const responseJson = await response.json()
       console.log(responseJson)
       setData(responseJson)
     } catch(err) {
-      setError(error => [...error, `${err.message} at 'https://under-a-tack.herokuapp.com/api/v1/images'`])
+      setError(error => [...error, `${err.message} at 'https://under-a-tack-api.onrender.com/api/v1/images'`])
       console.log(err.stack)
     }
   }
 
   const fetchFavData = async () => {
     try {
-      const response = await fetch('https://under-a-tack.herokuapp.com/api/v1/favorites')
+      const response = await fetch('https://under-a-tack-api.onrender.com/api/v1/favorites')
       const responseJson = await response.json()
       console.log(responseJson)
       setFavorites(responseJson)
     } catch(err) {
-      setError(error => [...error, `${err.message} at 'https://under-a-tack.herokuapp.com/api/v1/favorites'`])
+      setError(error => [...error, `${err.message} at 'https://under-a-tack-api.onrender.com/api/v1/favorites'`])
       console.log(err.stack)
     }
   }
@@ -48,7 +48,7 @@ const App = () => {
 
   const fetchCartData = async (logError = true) => {
     try {
-      const response = await fetch('https://under-a-tack.herokuapp.com/api/v1/cart')
+      const response = await fetch('https://under-a-tack-api.onrender.com/api/v1/cart')
       const responseJson = await response.json()
       if(!logError){
       console.log(responseJson.map())
@@ -57,11 +57,13 @@ const App = () => {
     } 
     catch(err) {
       console.error(err)
-      setError(error => [...error, `${err.message} at 'https://under-a-tack.herokuapp.com/api/v1/cart'`])
+      setError(error => [...error, `${err.message} at 'https://under-a-tack-api.onrender.com/api/v1/cart'`])
     }
   }
 
   const addToCart = async (newData) => {
+    //new data represents the object to POST
+    // Data that I'm sending NEEDS to match the rest of the data, and needs to be of the same data type
     const config = {
       method: 'POST',
       headers: {
@@ -71,7 +73,7 @@ const App = () => {
       body: JSON.stringify(newData)
     }
     try {
-      const fetchResponse = await fetch('https://under-a-tack.herokuapp.com/api/v1/cart', config)
+      const fetchResponse = await fetch('https://under-a-tack-api.onrender.com/api/v1/cart', config)
       const json = await fetchResponse.json()
       if(json.error){
         throw(json)
@@ -95,7 +97,7 @@ const App = () => {
       body: JSON.stringify(newData)
     };
     try {
-    const fetchResponse = await fetch(`https://under-a-tack.herokuapp.com/api/v1/cart/${newData.id}`, config)
+    const fetchResponse = await fetch(`https://under-a-tack-api.onrender.com/api/v1/cart/${newData.id}`, config)
     const json = await fetchResponse.json()
     console.log(json)
     fetchCartData()
@@ -116,7 +118,7 @@ const App = () => {
       body: JSON.stringify(newData)
     };
     try {
-    const fetchResponse = await fetch('https://under-a-tack.herokuapp.com/api/v1/favorites', config)
+    const fetchResponse = await fetch('https://under-a-tack-api.onrender.com/api/v1/favorites', config)
     const json = await fetchResponse.json()
     console.log(json)
     if(json.error){
@@ -142,7 +144,7 @@ const App = () => {
     }
 
     try {
-      const fetchResponse = await fetch(`https://under-a-tack.herokuapp.com/api/v1/favorites/${newData.id}`, config)
+      const fetchResponse = await fetch(`https://under-a-tack-api.onrender.com/api/v1/favorites/${newData.id}`, config)
       const json = await fetchResponse.json()
       console.log(json)
       fetchImageData()
