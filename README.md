@@ -1,5 +1,5 @@
-# [Under-a-tack!](https://edwardkrupicka.github.io/under-a-tack/)
-## [Under-a-tack Express.js repository](https://github.com/reganlosey/under-a-tack-API)
+# [Under-a-tack!](https://under-a-tack.netlify.app/)
+## [API Repository](https://github.com/reganlosey/under-a-tack-API)
 
 ## Mod3 2108 Group Project 
 ## Table of Contents
