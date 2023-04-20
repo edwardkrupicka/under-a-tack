@@ -48,7 +48,7 @@ const App = () => {
 
   const fetchCartData = async (logError = true) => {
     try {
-      const response = await fetch('https://under-a-tack-api.onrender.com/api/v1/cartapi/v1/cart')
+      const response = await fetch('https://under-a-tack-api.onrender.com/api/v1/cart')
       const responseJson = await response.json()
       if(!logError){
       console.log(responseJson.map())
